@@ -1,0 +1,18 @@
+- hostname: delta1
+  ip: 172.16.128.135
+  network: 172.16.128.128
+  netmask: 255.255.255.128
+  broadcast: 172.16.128.255
+  gateway: 172.16.128.129
+  mem: 512
+  vcpu: 1
+
+- hostname: echo1
+  ip: 172.16.128.136
+  network: 172.16.128.128
+  netmask: 255.255.255.128
+  broadcast: 172.16.128.255
+  gateway: 172.16.128.129
+  mem: 512
+  vcpu: 1
+

@@ -1,0 +1,29 @@
+---
+
+- name: Ensure necessary packages are installed
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - epel-release
+    - python-pip
+    - gcc
+    - python-devel
+    - openldap-devel
+  tags:
+    - 389-ds-config
+    - preparation
+
+- name: Upgrade pip
+  command: pip install --upgrade pip
+  tags:
+    - 389-ds-config
+    - preparation
+
+- name: Ensure python-ldap is installed
+  pip:
+    name: python-ldap
+    state: present
+  tags:
+    - 389-ds-config
+    - preparation

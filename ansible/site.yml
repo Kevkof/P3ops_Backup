@@ -1,0 +1,124 @@
+# site.yml
+---
+- hosts: all
+  become: true
+  roles:
+    - bertvv.rh-base
+    - metricbeat
+
+- hosts: alfa1
+  become: true
+  roles:
+    - CSCfi.389-ds
+    - 389-ds-config
+
+- hosts: papa1
+  become: true
+  roles:
+    - bertvv.tftp
+    - pxeserver
+
+- hosts: bravo1
+  become: true
+  roles:
+    - bertvv.bind
+
+- hosts: charlie1
+  become: true
+  roles:
+    - bertvv.bind
+
+- hosts: lima1
+  become: true
+  roles:
+    - samba
+
+
+- hosts: echo1
+  become: true  
+  roles:
+    - bertvv.httpd
+    - bertvv.drupal
+
+- hosts: mike1
+  become: true
+  roles:
+    - bertvv.httpd
+    - bertvv.wordpress
+    - markwilde.php-mcrypt
+    - markwilde.php
+
+- hosts: november1
+  become: true
+  roles:
+    - bertvv.mariadb
+
+- hosts: oscar1
+  become: true
+  roles:
+    - geerlingguy.kibana
+    - geerlingguy.java
+    - geerlingguy.elasticsearch
+  post_tasks:
+    - name: open port 80 kibana
+      shell: setcap cap_net_bind_service=+ep /opt/kibana/node/bin/node
+    - name: import predefined dashboards
+      shell: /usr/share/metricbeat/scripts/import_dashboards -es http://172.16.128.8:9200
+
+- hosts: quebec1
+  become: true
+  roles:
+    - bertvv.dnsmasq
+
+- hosts: kilo1
+  become: true
+  roles:
+    - bertvv.dhcp
+
+- hosts: delta1
+  become: true
+  roles:
+    - bertvv.httpd
+    - bertvv.mailserver
+    - geerlingguy.php
+    - bertvv.squirrelmail
+  post_tasks:
+    - name: Add imap host to /etc/hosts
+      lineinfile:
+        dest: /etc/hosts
+        line: "172.16.128.135 mail.green.local"
+    - seboolean:
+        name: httpd_can_sendmail
+        state: yes
+        persistent: yes
+    - name: Download compatibility plugin
+      get_url:
+        url: http://www.squirrelmail.org/plugins/compatibility-2.0.16-1.0.tar.gz
+        dest: $HOME/
+    - name: Download empty_trash plugin
+      get_url:
+        url: http://www.squirrelmail.org/plugins/empty_trash-2.0-1.2.2.tar.gz
+        dest: $HOME/
+    - name: Download secure_login plugin
+      get_url:
+        url: http://www.squirrelmail.org/plugins/secure_login-1.4-1.2.8.tar.gz
+        dest: $HOME/
+    - name: Uitpakken compatibility plugin
+      unarchive:
+        src: $HOME/compatibility-2.0.16-1.0.tar.gz
+        dest: /usr/share/squirrelmail/plugins
+        remote_src: yes
+    - name: Uitpakken empty_trash plugin
+      unarchive:
+        src: $HOME/empty_trash-2.0-1.2.2.tar.gz
+        dest: /usr/share/squirrelmail/plugins
+        remote_src: yes
+    - name: Uitpakken secure_login plugin
+      unarchive:
+        src: $HOME/secure_login-1.4-1.2.8.tar.gz
+        dest: /usr/share/squirrelmail/plugins
+        remote_src: yes
+    - name: Packages clean up
+      file:
+        state: absent
+        path: $HOME/*.tar.gz

@@ -1,0 +1,35 @@
+# Host_vars/papa1.yml
+---
+tftp_root_directory: /srv/tftp
+tftp_server_args: "--secure --create"
+tftp_mode: "0775"
+tftp_setype: public_content_rw_t
+tftp_anon_write: yes
+
+# Configuratie PXE
+
+pxeserver_ip: 172.16.128.9
+
+imagefedora27_url: https://mirrors.nic.cz/fedora/linux//releases/27/Workstation/x86_64/os/images/install.img
+imagecentos7_url: http://centos.cu.be/7/os/x86_64/LiveOS/squashfs.img
+
+pxeserver_images:
+  - name: Fedora27
+    default: true
+    kernel_url: https://mirrors.nic.cz/fedora/linux//releases/27/Workstation/x86_64/os/images/pxeboot/vmlinuz
+    initrd_url: https://mirrors.nic.cz/fedora/linux//releases/27/Workstation/x86_64/os/images/pxeboot/initrd.img
+    kickstart_path: files/pxe/anaconda-ks.cfg
+    label: 'Workstation'
+
+  - name: Centos7
+    kernel_url: http://centos.cu.be/7/os/x86_64/images/pxeboot/vmlinuz
+    initrd_url: http://centos.cu.be/7/os/x86_64/images/pxeboot/initrd.img
+    #kickstart_path: files/pxe/centos_ks.cfg
+    label: 'Server'
+
+rhbase_firewall_allow_services:
+  - tftp
+  - http
+  - https
+
+beats_config_file: files/servers.yml

@@ -1,0 +1,82 @@
+[ldap]
+alfa1 ansible_host=172.16.128.132
+
+[dns-servers]
+bravo1 ansible_host=172.16.128.133
+charlie1 ansible_host=172.16.128.134
+
+[mail]
+delta1 ansible_host=172.16.128.135
+
+[web-public]
+echo1 ansible_host=172.16.128.136
+
+[dhcp]
+kilo1 ansible_host=172.16.128.4
+
+[files]
+lima1 ansible_host=172.16.128.5
+
+[intranet]
+mike1 ansible_host=172.16.128.6
+
+[db]
+november1 ansible_host=172.16.128.7
+
+[mon]
+oscar1 ansible_host=172.16.128.8
+
+[pxe]
+papa1 ansible_host=172.16.128.9
+
+[dns-forward]
+quebec1 ansible_host=172.16.128.10
+
+[domain]
+ldap
+dns-servers
+mail
+dhcp
+files
+pxe
+dns-forward
+
+[web]
+db
+web-public
+intranet
+
+[virt1]
+alfa1
+bravo1
+charlie1
+
+[virt2]
+delta1
+echo1
+
+[virt3]
+kilo1
+lima1
+mike1
+november1
+
+[virt4]
+oscar1
+papa1
+quebec1
+
+[public]
+ldap
+dns-servers
+mail
+web-public
+
+[private]
+dhcp
+files
+intranet
+db
+mon
+pxe
+dns-forward

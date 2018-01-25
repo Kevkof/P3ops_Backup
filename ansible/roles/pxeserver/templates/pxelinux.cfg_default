@@ -1,0 +1,26 @@
+default vesamenu.c32
+prompt 0
+MENU INCLUDE vesamenu/vesamenu01.cfg
+TIMEOUT 150
+
+MENU TITLE P3OPS-Green PXEboot Menu
+MENU AUTOBOOT Start Workstation install in # seconden.
+MENU TABMSG Press [TAB] to change the settings.
+
+{% for image in pxeserver_images %}
+  
+LABEL {{ loop.index }}
+{% if image.default is defined and image.default == true %}
+MENU DEFAULT
+{% endif %}
+MENU LABEL ^{{ loop.index }}) {{ image.label }}
+KERNEL {{ image.name }}/vmlinuz
+APPEND initrd={{ image.name }}/initrd.img inst.stage2=http://{{ pxeserver_ip }}/{{ image.name }} ip=dhcp {% if image.kickstart_path is defined %} inst.ks=http://{{ pxeserver_ip }}/{{ image.name }}/ks.cfg {% endif %}
+
+MENU SEPARATOR
+
+{% endfor %}
+
+LABEL {{ pxeserver_images|length + 1 }}
+MENU LABEL ^{{ pxeserver_images|length + 1 }}) Boot from local drive
+LOCALBOOT

@@ -1,0 +1,42 @@
+#cloud-config
+
+# Manage hostname
+preserve_hostname: False
+hostname: {{ hostname }}
+fqdn: {{ hostname }}.green.local
+
+# Save all output to a log file
+output:
+  all: ">> /var/log/cloud-init.log"
+
+users:
+  - name: admin
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDwKAtbGAwZJOmexg3fPGSBIKWS2BRDixoRU9RK0q6wyW/LuUkm31VQnwcytzyXwuyizYaI9oQibXt+epAdRTEn5sVj4X8x+nwhdTBkeXf4QL5fy4jrEBiYQ55wlx8ds4Rw/C3Sama8xJxuauh6xLIlCBTCVyofEHT4lJDE7KOy0skw9Gj0bUNImaD7sD9/E1/0gBBX8f3uK4jEP5qW/Sv6K9ulqMIR8x+ACaLJNopEIHtVFbDBYpL+gBeRep7k7MqcB3lGlW/66F4psTmD2z+EKv9WT5jhn8ftD3+yqQNMNEDD5zF3qoqa37TmKiQWNjVPe2+6gIsNgRNkYQQl6WPT lander@lovelace
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9TEOa89wodIGmw+5fPiXt27b4yzey1HljDjzIixy8UBKk80BHA6JCc6dlX/FVuy5+H4Un+jeu43JfRQSnfEDC7WCYUcaN0tYtKVWFUigEzvndP4YmSlc4M7m9dtcF69x/CE3mX5BZa5F7exsOxPbqKIA/TqejcJpt96Q5M0VMJ7c5+s84690B/Wk4dZ/kU8usW3P1RLsoIlPY6zjkbB+zvZNsR4+K2/3RAkC0508u0L/eDwVYY5FswfeS2YqXXFTm02SmDfBJDhsBcarC5bsUEC+87SNewaI4C0vBmEcAI/H82A1jCU/4ZPl1pyTLXcu775sPoFtI6snW5XU5eUfb kevkof@localhost.localdomain
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqO/mqCLAgAcLLLLI9pGAgsVu437ZVMu0qu/XEqW3P4/hxAVlEGzBeVJwKW8w08T2dsByqe9rFs9aQy3OQbSIKlgqPo3Z1XpPw7i+yE1wp2n91b8bKlt/JovXZ3SlPt9kAVA4T7C0OjusVHWIHXq9uwoMu1LbechbwIb30dfOJBR057lK3OUJJJT4QS8Bs18pwK7MfqIlZoQeGJFGpgnJFWUa54n23bL3PGE85Io91/Gt64FOl8f7THX4NArkKnAhJkIge9/2QjpxtR3PoeHveoP3I+GFLIWLyb61LSrXj8vtLvQoiTyW1/HLrdIqTxfpA3ZCXAuPzR6k0PGWcpWDn lander@MacBook-Pro-van-Lander.local
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLEchONWVe/V99nJdhymInrXUhSjJGk7AWz3cIbO0y2Vgx1JmKvPqs7KXPg60rktk4139H2YTBR4hq2otalWmUMV2fvPdWGWq+bMPBoagwNddwL+spLjN7ZdLuaVrKaZc2y4GAUI29+6JOaIA1NLng7uCj8eph4I/kZ/ceMgffhPEqereOx02v6MKxXorjo7PhPUB1/v5fNbmQO37jDtO5KCIOPyKyaxB+dU6RS/myzDI9iUKyUBiKzdYEqPYC4CYd1o5Fa9bKmE76FyP8ynOSxze/d+aDTSVvkYMmNuNIVyW7otqTiHi3J9TjNqkppaFXeOHsEwi0JrA7WaUElnP7 brecht@MSI_Brecht
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/BiEDfpYyvq5NSL/ftJrDDvnWWfpb8dfBQ2eT15Af+YWnyMQIRIADrf/0Z5UdhD3r0el0ZqUAV2dUpLYDJzmPAqaOK9Yb81iVA+RM2rSXnnTbzLxSuzOpyHO17eC608zcWPMB/0Cj/uxoZxyzWkoG+atgMQvhdj5GYOVrrgQ66wgxpSu6+j3DQWlo65E2dZmfM1dyQtobAsBwgr1Q4Cbr7m00cdda1BBDkkgkNRJ7293nYMypvwYjLTy2uMnPbbE7j76sD1qdYHTrjKGo5nbf9dyvXkxtKpj6D17K3J8KiNGUrpcGDvFWrwliLc/Yf8/rA5Qi1hX+L9leFJ76u6ax GianniVanHavermaet@MacBook-Pro.local
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDu7QsyX1hH/jRt95PpVtx118uW3mIQ/7xcLqyb9X8XAi/d+kLjDHcehNaV2kdC1s4SfnfM8jRtgBDKkD+GPNubF6D0dBtPZFyEdkTb5wprt2xcF/WD7J5jz4cz6ET2yE2f9FhPxtRGCuTzMzTrS9MPENLwmWeRBeqHO7GVavVuXbrUOMQMPWOXFDyoIkfyz3uFCZFkAEleqlZg2oeSkJPm32t5Sxot6BKWAPdpHsEN9VW+TnH8lHdVx0bcQso9YhEl+afJopfA7QzMQ/kHA4deSkanDEdR38q9tErXWyvUuXeduPplAN/P0K3iehqtrTVA/gMOk7ideK0U50jT852T kasper@intercsnb
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC87brcy7CDDvwiwQtgQcRgyc/YIkffVTX1VYOONWXEJ7e0LruZQhqbRBNTdrUDllMJVZ0Ua9YzfXnUAAXVm6BUYgXbol1OPL8GZu0cJe81G+C8sct/c1FCVQ+dxH1CYHwt3pql3UiIBwft5BYHrCvbpAE3t7B6DCyb8ioFOtHnwCsD9PPQBRRenltn7LLp8nmAN6v9K3ar7wCNmQyDKUwTofVniZUHyaRV+ou09V+bG3WD4rQ2wBu26BHxcAPUcG5yH1nWyamIev+0aVc5zZfW7hVuLF4CvaDKbwpw4XweDqZoKAE3vcppHDs1yMT71Hm3gZlwH+ykkgmaMcZThO5V robbe@Robbe-Laptop
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEDEDvTCBmQ5p+OAewm1OUH/vOacMfG0c4nfXjOFl3Mo5IqFr5VLzJjcl3Fs4yszCZwkDWImaadVejXP+rxZN1P5kIKhFZKnfYevgdGFomzIDRa0Bzo0xcqqQmoxom+IH/AkjCIPgTSFsdospo89Ss1PdOPTftjXLXad6u6fFtl0neD78hn4EugKTo9eqdZ2/HHOqQ7c1TZvxQDfueLfUYEAs1pwXoql7bdqTd8Wy3JDybb3rT8zIALEU2meV8OEGYQsmf6jetwLjYuomcNoolGNNw8UrNukUVon/fZaqVTv3nrrXBW/MOmuXmJMbA5ZMtiJNFO6XLhGjH15HeEUmD pieter-janphilips@PJ-MBP.local
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtpkrGN7YLOZcvBtBWUhOP9X0GpkQGVbDIO5Mq3EsSLCWVXPPfoWGmWn4I+NbKlZc8nHXtXX+rK2N83SwYs+fuPpU8soAQrL6XcW+GWLlWBqDurYr6mLJdFTODnF4n266WpVhhLQIgn7VoO8OL/rQcpZAkfrU5zkQ3ifvDu9Tol0sn2WC0qDDrUDGPadynawgfUBjH2al6bcH7jVhkLZz0+ixLbveaXwkqX1aOrJp+klBw1DRMu0Z3dZwHeH3O1KZPzxjpM6tWvOPoDsRaimL2YnG1+KfE85NUijY9lQS0Umixo4JW9iZ8Uu7d56h3R+XDLt7luBUZvoa7Qeybihcv David@Luffy
+
+
+
+# Configure default gateway and DNS
+# Gateway is configured manually because of a known bug in cloud-init on CentOS 7.
+# This bug is supposed to be fixed in an upstream version, but the version supplied
+# with CentOS currently doesn't appear to have this fixed yet.
+# See https://serverfault.com/questions/882643/centos-atomic-7-cloud-init-static-network-configuration-no-default-gateway for more info
+runcmd:
+  - echo "runcmd started"
+  - ifdown eth0
+  - echo "GATEWAY={{ default_gateway }}" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+  - echo "DNS1=172.22.0.2" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+  - echo "DNS2=8.8.8.8" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+  - ifup eth0
+  - echo "runcmd ended"

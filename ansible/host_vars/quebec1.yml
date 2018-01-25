@@ -1,0 +1,23 @@
+# host_vars/quebec1.yml
+# Variabelen voor forwarding DNS - quebec1
+# IP-adres: 172.16.128.10
+---
+dnsmasq_domain: 'green.local'
+dnsmasq_domain_needed: false
+dnsmasq_upstream_servers:
+# - green.local DNS Servers
+  - /green.local/172.16.128.133 #/green.local/172.16.128.131 #ns1.green.local #bravo1
+  - /green.local/172.16.128.134 #/green.local/172.16.128.132 #ns2.green.local #charlie1
+# - red.local DNS Servers
+  - /red.local/172.18.2.67 #ns1.red.local #alfa2 172.18.2.67
+  - /red.local/172.18.2.68 #ns2.red.local #bravo2 172.18.2.68
+# - HoGent DNS ns1.hogent.be / ns2.hogent.be
+  - 193.190.173.1
+  - 193.190.173.2
+
+#Firewall
+
+rhbase_firewall_allow_services:
+  - dns
+
+beats_config_file: files/servers.yml

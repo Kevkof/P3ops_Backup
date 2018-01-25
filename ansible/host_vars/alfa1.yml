@@ -1,0 +1,94 @@
+---
+rhbase_firewall_allow_ports:
+  - 389/tcp
+  - 9830/tcp
+  - 636/tcp
+  - 3269/tcp
+
+rhbase_firewall_interfaces:
+  - enp0s3
+  - enp0s8
+
+dirsrv_fqdn: alfa1.green.local
+dirsrv_password: password
+dirsrv_admin_password: password
+dirsrv_rootdn: "cn=admin"
+
+dirsrv_remove_entries:
+  - "ou=Special Users,dc=green,dc=local"
+  - "cn=Accounting Managers,ou=Groups,dc=green,dc=local"
+  - "cn=HR Managers,ou=Groups,dc=green,dc=local"
+  - "cn=QA Managers,ou=Groups,dc=green,dc=local"
+  - "cn=PD Managers,ou=Groups,dc=green,dc=local"
+
+dirsrv_users:
+  - uid: lander
+    cn: Lander Van den Bulcke
+    sn: Van den Bulcke
+    description: Lander Van den Bulcke
+    password: "{SSHA}AO50t57kJUiQYk3pnXh+yI23/2+2wgkg" # hash for "password"
+    uidnumber: 700
+    gidnumber: 700
+    loginshell: /bin/bash
+    homedirectory: /home/lander
+  - uid: torvalds
+    cn: Linus Torvalds
+    sn: Torvalds
+    description: Linus Torvalds
+    password: "{SSHA}AO50t57kJUiQYk3pnXh+yI23/2+2wgkg" # hash for "password"
+    uidnumber: 701
+    gidnumber: 701
+    loginshell: /bin/bash
+    homedirectory: /home/torvalds
+  - uid: rms
+    cn: Richard Stallman
+    sn: Stallman
+    description: Richard Stallman
+    password: "{SSHA}AO50t57kJUiQYk3pnXh+yI23/2+2wgkg" # hash for "password"
+    uidnumber: 702
+    gidnumber: 702
+    loginshell: /bin/bash
+    homedirectory: /home/rms
+  - uid: knuth
+    cn: Donald Knuth
+    sn: Knuth
+    description: Donald Knuth
+    password: "{SSHA}AO50t57kJUiQYk3pnXh+yI23/2+2wgkg" # hash for "password"
+    uidnumber: 703
+    gidnumber: 703
+    loginshell: /bin/bash
+    homedirectory: /home/knuth
+  - uid: dmr
+    cn: Dennis Ritchie
+    sn: Ritchie
+    description: Dennis Ritchie
+    password: "{SSHA}AO50t57kJUiQYk3pnXh+yI23/2+2wgkg" # hash for "password"
+    uidnumber: 704
+    gidnumber: 704
+    loginshell: /bin/bash
+    homedirectory: /home/dmrr
+     
+
+dirsrv_groups:
+  - name: itadministratie
+    gidnumber: 600
+    members:
+      - lander
+  - name: verkoop
+    gidnumber: 601
+    members:
+      - torvalds
+  - name: administratie
+    gidnumber: 602
+    members:
+      - rms
+  - name: ontwikkeling
+    gidnumber: 603
+    members:
+      - knuth
+  - name: directie
+    gidnumber: 604
+    members:
+      - dmr
+      
+beats_config_file: files/servers.yml

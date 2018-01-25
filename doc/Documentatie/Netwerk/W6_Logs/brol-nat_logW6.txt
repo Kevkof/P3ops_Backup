@@ -1,0 +1,1708 @@
+ to enter the initial configuration dialog? [yes/no]: no
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname Switch3L2
+Switch3L2(config)#vlan 50
+Switch3L2(config-vlan)#vlan 30
+Switch3L2(config-vlan)#vlan 20
+Switch3L2(config-vlan)#int f0/1
+Switch3L2(config-if)#switchport mode trunk
+Switch3L2(config-if)#switchport trunk allowed vlan 50,30,20
+Switch3L2(config-if)#no shut
+Switch3L2(config-if)#int range f0/2-6
+Switch3L2(config-if-range)#switchport mode access
+Switch3L2(config-if-range)#switchport access vlan 20
+Switch3L2(config-if-range)#no shut
+Switch3L2(config-if-range)#int vlan 99
+% Command exited out of interface range and its sub-modes.
+  Not executing the command for second and later interfaces
+Switch3L2(config-if)#ip add 172.16.129.2 255.255.255.248
+Switch3L2(config-if)#no shut
+Switch3L2(config-if)#do write
+*Mar  1 00:19:31.401: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan99, changed state to dow
+Building configuration...
+[OK]
+Switch3L2(config-if)#endx
+                       ^
+% Invalid input detected at '^' marker.
+
+Switch3L2(config-if)#end
+Switch3L2#
+*Mar  1 00:19:43.968: %SYS-5-CONFIG_I: Configured from console by console
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: no
+
+
+Press RETURN to get started!
+
+
+*Nov  6 08:01:54.615: %LINK-3-UPDOWN: Interface Serial0/1/0, changed state to down
+*Nov  6 08:01:54.623: %LINK-3-UPDOWN: Interface Serial0/1/1, changed state to down
+*Nov  6 08:01:55.795: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/0, changed state tdown
+*Nov  6 08:01:55.795: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/1, changed state tdown
+*Nov  6 08:02:03.423: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed sta to down
+*Nov  6 08:02:03.467: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed sta to down
+*Nov  6 08:22:25.703: %LINK-5-CHANGED: Interface FastEthernet0/0, changed state to administrativeldown
+*Nov  6 08:22:25.703: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state to administrativeldown
+*Nov  6 08:22:25.707: %LINK-5-CHANGED: Interface Serial0/1/0, changed state to administratively do
+*Nov  6 08:22:25.707: %LINK-5-CHANGED: Interface Serial0/1/1, changed state to administratively do
+*Nov  6 08:22:25.831: %IP-5-WEBINST_KILL: Terminating DNS process
+*Nov  6 08:22:32.275: %SYS-5-RESTART: System restarted --
+Cisco IOS Software, 2801 Software (C2801-IPBASE-M), Version 12.4(18b), RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2008 by Cisco Systems, Inc.
+Compiled Mon 19-May-08 17:02 by prod_rel_team
+*Nov  6 08:22:32.283: %SNMP-5-COLDSTART: SNMP agent on host Router is undergoing a cold start
+*Nov  6 08:22:32.443: %SYS-6-BOOTTIME: Time taken to reboot after reload = 1291 seconds
+Router>
+Router>
+Router>
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int s0/0/0
+                      ^
+% Invalid input detected at '^' marker.
+
+Router(config)#no sh
+% Incomplete command.
+
+Router(config)#int g0/0
+                     ^
+% Invalid input detected at '^' marker.
+
+Router(config)#ip address 172.16.129.9 255.255.255.252
+                         ^
+% Invalid input detected at '^' marker.
+
+Router(config)#no sh
+% Incomplete command.
+
+Router(config)#exit
+Router#ip route 0.0.0.0 0.0.0.0 s0/0/0
+        ^
+% Invalid input detected at '^' marker.
+
+Router#ip route 172.16.0.0 255.255.0.0 g0/0
+        ^
+% Invalid input detected at '^' marker.
+
+Router#
+Router#end
+Translating "end"...domain server (255.255.255.255)
+
+Translating "end"...domain server (255.255.255.255)
+ (255.255.255.255)% Unknown command or computer name, or unable to find computer address
+Router#copy running-config startup-config
+*Nov  6 08:22:50.283: %SYS-5-CONFIG_I: Configured from console by console
+Destination filename [startup-config]?
+Building configuration...
+[OK]
+Router#
+Router#
+Router#
+Router#en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname Router0
+Router0(config)#int s0/1/0
+Router0(config-if)#no sh
+Router0(config-if)#int f0/0
+Router0(config-if)#ip address 172.16.129.9 255.255.255.252
+Router0(config-if)#no sh
+Router0(config-if)#exit
+Router0(config)#ip route 0.0.0.0 0.0.0.0 s0/1/0
+Router0(config)#ip route 172.16.0.0 255.255.0.0 f0/0
+Router0(config)#
+Router0(config)#end
+Router0#copy running-config startup-config
+*Nov  6 08:28:39.483: %SYS-5-CONFIG_I: Configured from console by console
+Destination filename [startup-config]?
+*Nov  6 08:28:41.355: %LINK-3-UPDOWN: Interface Serial0/1/0, changed state to down
+*Nov  6 08:28:41.407: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+Building configuration...
+[OK]
+Router0#
+Router0#
+Switch3L2#end
+Translating "end"...domain server (255.255.255.255)
+% Unknown command or computer name, or unable to find computer address
+Switch3L2#
+Switch3L2#exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Switch3L2 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+Switch3L2>
+Switch3L2>en
+Switch3L2#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch3L2(config)#hostname Switch3L2
+Switch3L2(config)#vlan 50
+Switch3L2(config-vlan)#vlan 30
+Switch3L2(config-vlan)#vlan 20
+Switch3L2(config-vlan)#int f0/1
+Switch3L2(config-if)#switchport mode trunk
+Switch3L2(config-if)#switchport trunk allowed vlan 50,30,20
+Switch3L2(config-if)#no shut
+Switch3L2(config-if)#int range f0/2-6
+Switch3L2(config-if-range)#switchport mode access
+Switch3L2(config-if-range)#switchport access vlan 20
+Switch3L2(config-if-range)#no shut
+Switch3L2(config-if-range)#int vlan 99
+% Command exited out of interface range and its sub-modes.
+  Not executing the command for second and later interfaces
+Switch3L2(config-if)#ip add 172.16.129.2 255.255.255.248
+Switch3L2(config-if)#no shut
+Switch3L2(config-if)#do write
+Building configuration...
+[OK]
+Switch3L2(config-if)#
+Switch3L2(config-if)#
+Switch3L2(config-if)#
+*Mar  1 00:29:44.357: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed sta to down
+*Mar  1 00:29:45.364: %LINK-3-UPDOWN: Interface FastEthernet0/3, changed state to down
+*Mar  1 00:29:57.393: %LINK-3-UPDOWN: Interface FastEthernet0/3, changed state to up
+*Mar  1 00:29:58.400: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed sta to up
+RouterIN>en
+RouterIN#show ip ro
+RouterIN#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     172.16.0.0/16 is variably subnetted, 3 subnets, 2 masks
+C       172.16.128.0/25 is directly connected, FastEthernet0/0.30
+C       172.16.128.128/25 is directly connected, FastEthernet0/0.50
+C       172.16.0.0/17 is directly connected, FastEthernet0/0.20
+RouterIN#show ip in
+RouterIN#show ip interface
+FastEthernet0/0 is up, line protocol is up
+  Internet protocol processing disabled
+FastEthernet0/0.20 is up, line protocol is up
+  Internet address is 172.16.0.1/17
+  Broadcast address is 255.255.255.255
+  Address determined by setup command
+  MTU is 1500 bytes
+  Helper address is not set
+  Directed broadcast forwarding is disabled
+  Outgoing access list is not set
+  Inbound  access list is not set
+  Proxy ARP is enabled
+  Local Proxy ARP is disabled
+  Security level is default
+  Split horizon is enabled
+  ICMP redirects are always sent
+  ICMP unreachables are always sent
+  ICMP mask replies are never sent
+  IP fast switching is enabled
+  IP fast switching on the same interface is enabled
+  IP Flow switching is disabled
+  IP CEF switching is enabled
+  IP CEF Fast switching turbo vector
+
+RouterIN#show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    up
+FastEthernet0/0.20         172.16.0.1      YES manual up                    up
+FastEthernet0/0.30         172.16.128.1    YES manual up                    up
+FastEthernet0/0.50         172.16.128.129  YES manual up                    up
+FastEthernet0/1            172.16.129.10   YES manual up                    down
+Serial0/1/0                unassigned      YES unset  administratively down down
+Serial0/1/1                unassigned      YES unset  administratively down down
+RouterIN#
+*Jan  1 00:49:18.631: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed sta to up
+RouterIN#show ip interface brief
+*Jan  1 00:49:21.251: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed sta to down
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    down
+FastEthernet0/0.20         172.16.0.1      YES manual up                    down
+FastEthernet0/0.30         172.16.128.1    YES manual up                    down
+FastEthernet0/0.50         172.16.128.129  YES manual up                    down
+FastEthernet0/1            172.16.129.10   YES manual up                    up
+Serial0/1/0                unassigned      YES unset  administratively down down
+Serial0/1/1                unassigned      YES unset  administratively down down
+RouterIN#
+*Jan  1 00:49:40.191: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed sta to up
+*Jan  1 00:49:41.251: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed sta to down
+RouterIN#ping 172.16.128.132
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.128.132, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/2/4 ms
+RouterIN#ping 172.16.0.2
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.0.2, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+RouterIN#ping 172.16.0.5
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.0.5, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+RouterIN#ping 172.16.0.5
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.0.5, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+RouterIN#
+RouterIN#
+RouterIN#ping 172.16.0.5
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.0.5, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+RouterIN#ping 172.16.0.5
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.0.5, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+RouterIN#ping 172.16.0.5
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.0.5, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+RouterIN#ping 172.16.0.1
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/4 ms
+RouterIN#
+Switch3L2>
+Switch3L2>show ip int brief
+Interface              IP-Address      OK? Method Status                Protocol
+Vlan1                  unassigned      YES unset  up                    up
+Vlan99                 172.16.129.2    YES manual down                  down
+FastEthernet0/1        unassigned      YES unset  down                  down
+FastEthernet0/2        unassigned      YES unset  down                  down
+FastEthernet0/3        unassigned      YES unset  down                  down
+FastEthernet0/4        unassigned      YES unset  up                    up
+FastEthernet0/5        unassigned      YES unset  down                  down
+FastEthernet0/6        unassigned      YES unset  down                  down
+FastEthernet0/7        unassigned      YES unset  down                  down
+FastEthernet0/8        unassigned      YES unset  down                  down
+FastEthernet0/9        unassigned      YES unset  down                  down
+FastEthernet0/10       unassigned      YES unset  down                  down
+FastEthernet0/11       unassigned      YES unset  down                  down
+FastEthernet0/12       unassigned      YES unset  down                  down
+FastEthernet0/13       unassigned      YES unset  down                  down
+FastEthernet0/14       unassigned      YES unset  down                  down
+FastEthernet0/15       unassigned      YES unset  down                  down
+FastEthernet0/16       unassigned      YES unset  down                  down
+FastEthernet0/17       unassigned      YES unset  down                  down
+FastEthernet0/18       unassigned      YES unset  down                  down
+FastEthernet0/19       unassigned      YES unset  down                  down
+FastEthernet0/20       unassigned      YES unset  down                  down
+FastEthernet0/21       unassigned      YES unset  down                  down
+FastEthernet0/22       unassigned      YES unset  down                  down
+FastEthernet0/23       unassigned      YES unset  down                  down
+FastEthernet0/24       unassigned      YES unset  down                  down
+GigabitEthernet0/1     unassigned      YES unset  down                  down
+GigabitEthernet0/2     unassigned      YES unset  up                    up
+Switch3L2>do show vlans
+           ^
+% Invalid input detected at '^' marker.
+
+Switch3L2>show vlans
+                   ^
+% Invalid input detected at '^' marker.
+
+Switch3L2>show ?
+  aaa            Show AAA values
+  auto           Show Automation Template
+  auto           Show Automation Template
+  cca            CCA information
+  class-map      Show QoS Class Map
+  clock          Display the system clock
+  cns            CNS agents
+  controllers    Interface controller status
+  crypto         Encryption module
+  dampening      Display dampening information
+  dot1x          Dot1x information
+  env            Environmental facilities
+  errdisable     Error disable
+  etherchannel   EtherChannel information
+  exception      exception informations
+  flash:         display information about flash: file system
+  flowcontrol    show flow control information
+  history        Display the session command history
+  hosts          IP domain-name, lookup style, nameservers, and host table
+  idprom         show IDPROMs for interfaces
+  if-mgr         if-mgr information
+  inventory      Show the physical inventory
+  ip             IP information
+  ipv6           IPv6 information
+  kron           Kron Subsystem
+  lacp           Port channel information
+  link           Show Link
+  location       Display the system location
+  login          Display Secure Login Configurations and State
+  mac            MAC configuration
+  memory         Memory statistics
+  mls            mls global commands
+  monitor        Monitoring different system events
+  pagp           Port channel information
+  platform       platform specific show commands
+  pm             Show Port Manager commands
+  policy-map     Show QoS Policy Map
+  power          Switch Power
+  queue          Show queue contents
+  queueing       Show queueing configuration
+  radius         Shows radius information
+  resource       Resource group statistics
+  rmon           rmon statistics
+  sasl           show SASL information
+  sessions       Information about Telnet connections
+  snmp           snmp statistics
+  ssh            Status of SSH server connections
+  ssl            Show SSL command
+  storm-control  Show storm control configuration
+  table-map      Show Table Map
+  tacacs         Shows tacacs+ server statistics
+  template       Template information
+  terminal       Display terminal configuration parameters
+  time-range     Time range
+  udld           UDLD information
+  users          Display information about terminal lines
+  version        System hardware and software status
+  vlan           VTP VLAN status
+  vmps           VMPS version information
+  vtp            VTP information
+
+Switch3L2>show vlan
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/1, Fa0/7, Fa0/8, Fa0/9
+                                                Fa0/10, Fa0/11, Fa0/12, Fa0/13
+                                                Fa0/14, Fa0/15, Fa0/16, Fa0/17
+                                                Fa0/18, Fa0/19, Fa0/20, Fa0/21
+                                                Fa0/22, Fa0/23, Fa0/24, Gi0/1
+                                                Gi0/2
+20   VLAN0020                         active    Fa0/2, Fa0/3, Fa0/4, Fa0/5
+                                                Fa0/6
+30   VLAN0030                         active
+50   VLAN0050                         active
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+1    enet  100001     1500  -      -      -        -    -        0      0
+20   enet  100020     1500  -      -      -        -    -        0      0
+30   enet  100030     1500  -      -      -        -    -        0      0
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+50   enet  100050     1500  -      -      -        -    -        0      0
+1002 fddi  101002     1500  -      -      -        -    -        0      0
+1003 tr    101003     1500  -      -      -        -    -        0      0
+1004 fdnet 101004     1500  -      -      -        ieee -        0      0
+1005 trnet 101005     1500  -      -      -        ibm  -        0      0
+
+Remote SPAN VLANs
+------------------------------------------------------------------------------
+
+
+Primary Secondary Type              Ports
+------- --------- ----------------- ------------------------------------------
+
+Switch3L2>show ip int brief
+Interface              IP-Address      OK? Method Status                Protocol
+Vlan1                  unassigned      YES unset  up                    up
+Vlan99                 172.16.129.2    YES manual down                  down
+FastEthernet0/1        unassigned      YES unset  down                  down
+FastEthernet0/2        unassigned      YES unset  down                  down
+FastEthernet0/3        unassigned      YES unset  down                  down
+FastEthernet0/4        unassigned      YES unset  up                    up
+FastEthernet0/5        unassigned      YES unset  down                  down
+FastEthernet0/6        unassigned      YES unset  down                  down
+FastEthernet0/7        unassigned      YES unset  down                  down
+FastEthernet0/8        unassigned      YES unset  down                  down
+FastEthernet0/9        unassigned      YES unset  down                  down
+FastEthernet0/10       unassigned      YES unset  down                  down
+FastEthernet0/11       unassigned      YES unset  down                  down
+FastEthernet0/12       unassigned      YES unset  down                  down
+FastEthernet0/13       unassigned      YES unset  down                  down
+FastEthernet0/14       unassigned      YES unset  down                  down
+FastEthernet0/15       unassigned      YES unset  down                  down
+FastEthernet0/16       unassigned      YES unset  down                  down
+FastEthernet0/17       unassigned      YES unset  down                  down
+FastEthernet0/18       unassigned      YES unset  down                  down
+FastEthernet0/19       unassigned      YES unset  down                  down
+FastEthernet0/20       unassigned      YES unset  down                  down
+
+Switch3L2>show ip int brief
+Interface              IP-Address      OK? Method Status                Protocol
+Vlan1                  unassigned      YES unset  up                    up
+Vlan99                 172.16.129.2    YES manual down                  down
+FastEthernet0/1        unassigned      YES unset  down                  down
+FastEthernet0/2        unassigned      YES unset  down                  down
+FastEthernet0/3        unassigned      YES unset  down                  down
+FastEthernet0/4        unassigned      YES unset  up                    up
+FastEthernet0/5        unassigned      YES unset  down                  down
+FastEthernet0/6        unassigned      YES unset  down                  down
+FastEthernet0/7        unassigned      YES unset  down                  down
+FastEthernet0/8        unassigned      YES unset  down                  down
+FastEthernet0/9        unassigned      YES unset  down                  down
+FastEthernet0/10       unassigned      YES unset  down                  down
+FastEthernet0/11       unassigned      YES unset  down                  down
+FastEthernet0/12       unassigned      YES unset  down                  down
+FastEthernet0/13       unassigned      YES unset  down                  down
+FastEthernet0/14       unassigned      YES unset  down                  down
+FastEthernet0/15       unassigned      YES unset  down                  down
+FastEthernet0/16       unassigned      YES unset  down                  down
+FastEthernet0/17       unassigned      YES unset  down                  down
+FastEthernet0/18       unassigned      YES unset  down                  down
+FastEthernet0/19       unassigned      YES unset  down                  down
+FastEthernet0/20       unassigned      YES unset  down                  down
+FastEthernet0/21       unassigned      YES unset  down                  down
+FastEthernet0/22       unassigned      YES unset  down                  down
+FastEthernet0/23       unassigned      YES unset  down                  down
+FastEthernet0/24       unassigned      YES unset  down                  down
+GigabitEthernet0/1     unassigned      YES unset  down                  down
+GigabitEthernet0/2     unassigned      YES unset  up                    up
+Switch3L2>
+Switch3L2>
+Switch3L2>en
+Switch3L2#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch3L2(config)#hostname Switch3L2
+Switch3L2(config)#vlan 50
+Switch3L2(config-vlan)#vlan 30
+Switch3L2(config-vlan)#vlan 20
+Switch3L2(config-vlan)#int g0/2
+Switch3L2(config-if)#switchport mode trunk
+Switch3L2(config-if)#switchport trunk allowed vlan 50,30,20
+Switch3L2(config-if)#no shut
+Switch3L2(config-if)#int range f0/2-6
+Switch3L2(config-if-range)#switchport mode access
+Switch3L2(config-if-range)#switchport access vlan 20
+Switch3L2(config-if-range)#no shut
+Switch3L2(config-if-range)#int vlan 99
+% Command exited out of interface range and its sub-modes.
+  Not executing the command for second and later interfaces
+Switch3L2(config-if)#ip add 172.16.129.2 255.255.255.248
+Switch3L2(config-if)#no shut
+Switch3L2(config-if)#do write
+Building configuration...
+
+*Mar  1 00:46:36.107: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/2, changed ate to down
+*Mar  1 00:46:36.107: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to downK]
+Switch3L2(config-if)#
+*Mar  1 00:46:39.110: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/2, changed ate to up
+Switch2L2>
+Switch2L2>
+Switch2L2>
+Switch2L2>en
+Switch2L2#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch2L2(config)#hostname Switch2L2
+Switch2L2(config)#vlan 50
+Switch2L2(config-vlan)#vlan 30
+Switch2L2(config-vlan)#vlan 20
+Switch2L2(config-vlan)#int g0/1
+Switch2L2(config-if)#switchport mode trunk
+Switch2L2(config-if)#switchport trunk allowed vlan 50,30,20
+Switch2L2(config-if)#no shut
+Switch2L2(config-if)#int range f0/3-8
+Switch2L2(config-if-range)#switchport mode access
+Switch2L2(config-if-range)#switchport access vlan 30
+Switch2L2(config-if-range)#no shut
+Switch2L2(config-if-range)#int g0/2
+% Command exited out of interface range and its sub-modes.
+  Not executing the command for second and later interfaces
+Switch2L2(config-if)#switchport mode trunk
+Switch2L2(config-if)#switchport trunk allowed vlan 50,30,20
+Switch2L2(config-if)#no shut
+Switch2L2(config-if)#int vlan 99
+Switch2L2(config-if)#ip add 172.16.129.3 255.255.255.248
+Switch2L2(config-if)#no shut
+Switch2L2(config-if)#do write
+Building configuration...
+[OK]
+Switch2L2(config-if)#
+00:48:58: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to down
+Switch2L2(config-if)#
+Switch2L2(config-if)#
+00:54:00: %LINK-3-UPDOWN: Interface FastEthernet0/4, changed state to up
+00:54:01: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to up
+00:54:59: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to down
+00:55:00: %LINK-3-UPDOWN: Interface FastEthernet0/4, changed state to down
+00:55:11: %LINK-3-UPDOWN: Interface FastEthernet0/4, changed state to up
+00:55:12: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to up
+Router0>
+Router0>
+*Nov  6 09:06:46.835: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed sta to up
+Router0>
+Router0>
+Router0>
+Router0>en
+Router0#show ip br
+Router0#show ip brief
+                ^
+% Invalid input detected at '^' marker.
+
+Router0#show ip inte
+Router0#show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.16.129.9    YES manual up                    up
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Router0#ping google
+Translating "google"...domain server (255.255.255.255)
+% Unrecognized host or address, or protocol not running.
+
+Router0#
+Router0#ping google.com
+Translating "google.com"...domain server (255.255.255.255)
+% Unrecognized host or address, or protocol not running.
+
+Router0#
+Router0#
+Router0#
+Router0#ping 172.217.17.110
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.217.17.110, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+Router0#ping 172.217.17.110
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.217.17.110, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+Router0#show ip int br
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.16.129.9    YES manual up                    up
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Router0#show ip int br
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.16.129.9    YES manual up                    up
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Router0#show ip int br
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.16.129.9    YES manual up                    up
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Router0#show ip int br
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.16.129.9    YES manual up                    up
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Router0#show ip int br
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.16.129.9    YES manual up                    up
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Router0#show ip int br
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.16.129.9    YES manual up                    up
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Router0#show ip int br
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.16.129.9    YES manual up                    up
+FastEthernet0/1            unassigned      YES unset  administratively down down
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+Router0#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#int g0/1
+                      ^
+% Invalid input detected at '^' marker.
+
+Router0(config)#int f0/1
+Router0(config-if)#no sh
+Router0(config-if)#
+*Nov  6 09:16:16.399: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+*Nov  6 09:16:17.399: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+Router0(config-if)#ip nat inside
+Router0(config-if)#
+*Nov  6 09:17:05.347: %LINEPROTO-5-UPDOWN: Line protocol on Interface NVI0, changed state to up
+Router0(config-if)#int f0/0
+Router0(config-if)#ip nat outside
+Router0(config-if)#ip nat ?
+  allow-static-host  Allow static-ip clients
+  enable             Enable Address Translation (NVI)
+  inside             Inside interface for address translation
+  outside            Outside interface for address translation
+
+Router0(config-if)#ip nat
+% Incomplete command.
+
+Router0(config-if)#ip nat enable ?
+  <cr>
+
+Router0(config-if)#ip nat enable
+Router0(config-if)#int f0/1
+Router0(config-if)#ip nat enable
+Router0(config-if)#end
+Router0#
+*Nov  6 09:19:15.479: %SYS-5-CONFIG_I: Configured from console by console
+Router0#show ?
+  aaa                       Show AAA values
+  access-expression         List access expression
+  access-lists              List access lists
+  accounting                Accounting data for active sessions
+  adjacency                 Adjacent nodes
+  aliases                   Display alias commands
+  alignment                 Show alignment information
+  archive                   Archive of the running configuration information
+  arp                       ARP table
+  async                     Information on terminal lines used as router
+                            interfaces
+  auto                      Show Automation Template
+  backhaul-session-manager  Backhaul Session Manager information
+  backup                    Backup status
+  bridge                    Bridge Forwarding/Filtering Database [verbose]
+  buffers                   Buffer pool statistics
+  calendar                  Display the hardware calendar
+  call                      Show call
+  caller                    Display information about dialup connections
+  cca                       CCA information
+  cdapi                     CDAPI information
+  cdp                       CDP information
+  cef                       Cisco Express Forwarding
+  class-map                 Show QoS Class Map
+  clock                     Display the system clock
+  cls                       DLC user information
+  cns                       CNS agents
+  compress                  Show compression statistics
+  configuration             Configuration details
+  connection                Show Connection
+  context                   Show context information about recent crash(s)
+  controllers               Interface controller status
+  cops                      COPS information
+  crm                       Carrier Resource Manager info
+  dampening                 Display dampening information
+  data-corruption           Show data errors
+  debugging                 State of each debugging option
+  derived-config            Derived operating configuration
+  dhcp                      Dynamic Host Configuration Protocol status
+  diag                      Show diagnostic information for port
+                            adapters/modules
+  dialer                    Dialer parameters and statistics
+  dnsix                     Shows Dnsix/DMDP information
+  dot1x                     IEEE 802.1X
+  dss                       DSS information
+  dtp                       DTP information
+  entry                     Queued terminal entries
+  environment               Environmental monitor statistics
+  errdisable                Error disable
+  event-manager             Event manager information
+  exception                 exception information
+  file                      Show filesystem information
+  flash:                    display information about flash: file system
+  flow-sampler              Display the flow samplers configured
+  frame-relay               Frame-Relay information
+  glbp                      GLBP information
+  hardware                  Hardware specific information
+  history                   Display the session command history
+  hosts                     IP domain-name, lookup style, nameservers, and host
+                            table
+  html                      HTML helper commands
+  idb                       List of Interface Descriptor Blocks
+  interfaces                Interface status and configuration
+  inventory                 Show the physical inventory
+  ip                        IP information
+  iua                       ISDN User Adaptation Layer information
+  key                       Key information
+  kron                      Kron Subsystem
+  l2tun                     Layer 2 tunnel information
+  line                      TTY line information
+  llc2                      IBM LLC2 circuit information
+  location                  Display the system location
+  logging                   Show the contents of logging buffers
+  login                     Display Secure Login Configurations and State
+  mac-address-table         MAC forwarding table
+  management                Display the management applications
+  memory                    Memory statistics
+  microcode                 show configured microcode for downloadable hardware
+  modemcap                  Show Modem Capabilities database
+  monitor                   Monitoring different system events
+  network-clocks            Network clocks information
+  ntp                       Network time protocol
+  parser                    Display parser information
+  pas                       Port Adaptor Information
+  pci                       PCI Information
+  platform                  Show platform information
+  pm                        Show Port Manager commands
+  policy-manager            Policy Manager
+  policy-map                Show QoS Policy Map
+  ppp                       PPP parameters and statistics
+  pppatm                    PPP over ATM
+  pppoe                     PPPoE information
+  printers                  Show LPD printer information
+  privilege                 Show current privilege level
+  processes                 Active process statistics
+  protocols                 Active network routing protocols
+  qdm                       Show information about QoS Device Manager
+  queue                     Show queue contents
+  queueing                  Show queueing configuration
+  radius                    Shows radius information
+  random-detect-group       display random-detect group
+  region                    Region Manager Status
+  registry                  Function registry information
+  reload                    Scheduled reload information
+  resource                  Display Resource Usage/Relations and more details
+  rhosts                    Remote-host+user equivalences
+  rif                       RIF cache entries
+  rmi                       Resource User Infrastructure information
+  rmon                      rmon statistics
+  rom-monitor               show ROMMON region information
+  route-map                 route-map information
+  rudpv1                    Rudpv1 information
+  running-config            Current operating configuration
+  scp                       SCP commands
+  secure                    Show secure image and configuration archive
+  sessions                  Information about Telnet connections
+  slm                       XML data structure information
+  smds                      SMDS information
+  smf                       Software MAC filter
+  snapshot                  Snapshot parameters and statistics
+  snmp                      snmp statistics
+  sntp                      Simple network time protocol
+  spanning-tree             Spanning tree topology
+  sss                       SSS Information
+  stacks                    Process stack utilization
+  standby                   Hot Standby Router Protocol (HSRP) information
+  startup-config            Contents of startup configuration
+  storm-control             Show packet storm control configuration
+  subscriber-policy         Subscriber policy
+  subsys                    Show subsystem information
+  table-map                 Show Table Map
+  tacacs                    Shows tacacs+ server statistics
+  tcp                       Status of TCP connections
+  tdm                       TDM connection information
+  tech-support              Show system information for Tech-Support
+  template                  Template information
+  terminal                  Display terminal configuration parameters
+  time-range                Time range
+  track                     Tracking information
+  traffic-shape             traffic rate shaping configuration
+  translate                 Protocol translation information
+  trunk                     Trunk Group info
+  tunnel                    Show configured tunnels
+  usb                       USB Interface
+  users                     Display information about terminal lines
+  vc-group                  Show VC Group
+  version                   System hardware and software status
+  vlan-range                VLAN Range
+  vlan-switch               VTP VLAN status
+  vlans                     Virtual LANs Information
+  vpdn                      VPDN information
+  vrrp                      VRRP information
+  vtemplate                 Virtual Template interface information
+  vtp                       VTP information
+  warm-reboot               Show Warm Reboot related information
+  whoami                    Info on current tty line
+  wrr-queue                 WRR queue
+  x25                       X.25 information
+  x29                       X.29 information
+
+Router0#show
+% Type "show ?" for a list of subcommands
+Router0#show ip nat
+% Incomplete command.
+
+Router0#show ip nat ?
+  nvi           NVI information
+  statistics    Translation statistics
+  translations  Translation entries
+
+Router0#show ip nat nvi
+% Incomplete command.
+
+Router0#show ip nat nvi ?
+  statistics    Translation statistics
+  translations  Translation entries
+
+Router0#show ip nat nvi tr
+Router0#show ip nat nvi translations ?
+  esp      Show ESP entries
+  global   Display entries in Global/Dest Table - NVI
+  icmp     Show ICMP entries
+  pptp     Show PPTP entries
+  tcp      Show TCP entries
+  udp      Show UDP entries
+  verbose  Show extra information
+  vrf      Display entries of VRF instance
+  |        Output modifiers
+  <cr>
+
+Router0#show ip nat nvi translations
+
+Router0#show ip nat ?
+  nvi           NVI information
+  statistics    Translation statistics
+  translations  Translation entries
+
+Router0#show ip nat ?
+  nvi           NVI information
+  statistics    Translation statistics
+  translations  Translation entries
+
+Router0#show ip nat tr
+Router0#show ip nat translations
+
+Router0#en
+Router0#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#int f0/0
+Router0(config-if)#ip ac
+Router0(config-if)#ip acce
+Router0(config-if)#ip access-group INTERNET ?
+  in   inbound packets
+  out  outbound packets
+
+Router0(config-if)#ip access-group INTERNET in ?
+  <cr>
+
+Router0(config-if)#ip access-group INTERNET in
+Router0(config-if)#IP AD
+Router0(config-if)#IP ADdress d
+Router0(config-if)#IP ADdress dhcp
+Router0(config-if)#ip nat ou
+Router0(config-if)#ip nat outside
+Router0(config-if)#no sh
+Router0(config-if)#int
+*Nov  6 09:21:23.475: %DHCP-6-ADDRESS_ASSIGN: Interface FastEthernet0/0 assigned DHCP address 172.22.17.136, mask 255.255.0.0, hostname Router0                                                    int f0/1
+                    ^
+% Invalid input detected at '^' marker.
+
+Router0(config-if)#int f0/1
+Router0(config-if)#ip nat inside
+Router0(config-if)#ip ac
+Router0(config-if)#ip acce
+Router0(config-if)#ip access-l
+Router0(config-if)#ip access-lis
+Router0(config-if)#ip access-lis?
+% Unrecognized command
+Router0(config-if)#ip ?
+Interface IP configuration subcommands:
+  access-group        Specify access control for packets
+  accounting          Enable IP accounting on this interface
+  address             Set the IP address of an interface
+  authentication      authentication subcommands
+  bandwidth-percent   Set EIGRP bandwidth limit
+  broadcast-address   Set the broadcast address of an interface
+  cef                 Cisco Express Forwarding interface commands
+  cgmp                Enable/disable CGMP
+  ddns                Configure dynamic DNS
+  dhcp                Configure DHCP parameters for this interface
+  directed-broadcast  Enable forwarding of directed broadcasts
+  dvmrp               DVMRP interface commands
+  flow                NetFlow related commands
+  hello-interval      Configures IP-EIGRP hello interval
+  helper-address      Specify a destination address for UDP broadcasts
+  hold-time           Configures IP-EIGRP hold time
+  idle-group          Specify interesting packets for idle-timer
+  igmp                IGMP interface commands
+  information-reply   Enable sending ICMP Information Reply messages
+  irdp                ICMP Router Discovery Protocol
+  load-sharing        Style of load sharing
+  local-proxy-arp     Enable local-proxy ARP
+  mask-reply          Enable sending ICMP Mask Reply messages
+  mrm                 Configure IP Multicast Routing Monitor tester
+  mroute-cache        Enable switching cache for incoming multicast packets
+  mtu                 Set IP Maximum Transmission Unit
+  multicast           IP multicast interface commands
+  nat                 NAT interface commands
+  nbar                Network-Based Application Recognition
+  next-hop-self       Configures IP-EIGRP next-hop-self
+  nhrp                NHRP interface subcommands
+  ospf                OSPF interface commands
+  pim                 PIM interface commands
+  policy              Enable policy routing
+  proxy-arp           Enable proxy ARP
+  rarp-server         Enable RARP server for static arp entries
+  redirects           Enable sending ICMP Redirect messages
+  rgmp                Enable/disable RGMP
+  rip                 Router Information Protocol
+  route-cache         Enable fast-switching cache for outgoing packets
+  rsvp                RSVP Interface Commands
+  sap                 Session Announcement Protocol interface commands
+  security            DDN IP Security Option
+  split-horizon       Perform split horizon
+
+Router0(config-if)#acces
+Router0(config-if)#access-l
+Router0(config-if)#access-lis
+Router0(config-if)#access-lis?
+% Unrecognized command
+Router0(config-if)#access?
+access-expression
+
+Router0(config-if)#ip ac?
+access-group  accounting
+
+Router0(config-if)#exit
+Router0(config)#ip acc
+Router0(config)#ip acces
+Router0(config)#ip access-list stan
+Router0(config)#ip access-list standard TEST
+Router0(config-std-nacl)#permit any any
+Translating "any"...domain server (172.22.0.2)
+                                    ^
+% Invalid input detected at '^' marker.
+
+Router0(config-std-nacl)#permit ?
+  Hostname or A.B.C.D  Address to match
+  any                  Any source host
+  host                 A single host address
+
+Router0(config-std-nacl)#permit any ?
+  log  Log matches against this entry
+  <cr>
+
+Router0(config-std-nacl)#permit any
+Router0(config-std-nacl)#exit
+Router0(config)#ip ac
+Router0(config)#ip acce
+Router0(config)#ip access-list ex
+Router0(config)#ip access-list extended INTERNET
+Router0(config-ext-nacl)#permit tcp any any es
+Router0(config-ext-nacl)#permit tcp any any established
+Router0(config-ext-nacl)#deny tc
+Router0(config-ext-nacl)#permit ip any any
+Router0(config-ext-nacl)#exit
+Router0(config)#ip nat ins
+Router0(config)#ip nat inside sour
+Router0(config)#ip nat inside source l
+Router0(config)#ip nat inside source list TEST int
+Router0(config)#ip nat inside source list TEST interface f0/0 ov
+Router0(config)#ip nat inside source list TEST interface f0/0 overload
+Router0(config)#ip d
+Router0(config)#ip dh
+Router0(config)#ip dhcp ex
+Router0(config)#ip na
+Router0(config)#ip nat ?
+  Stateful     Stateful NAT configuration commands
+  create       Create flow entries
+  inside       Inside address translation
+  log          NAT Logging
+  outside      Outside address translation
+  pool         Define pool of addresses
+  service      Special translation for application using non-standard port
+  source       Source address translation
+  translation  NAT translation entry configuration
+
+Router0(config)#ip nat tr
+Router0(config)#ip nat translation ?
+  dns-timeout             Specify timeout for NAT DNS flows
+  finrst-timeout          Specify timeout for NAT TCP flows after a FIN or RST
+  icmp-timeout            Specify timeout for NAT ICMP flows
+  max-entries             Specify maximum number of NAT entries
+  port-timeout            Specify timeout for NAT TCP/UDP port specific flows
+  pptp-timeout            Specify timeout for NAT PPTP flows
+  routemap-entry-timeout  Specify timeout for routemap created half entry
+  syn-timeout             Specify timeout for NAT TCP flows after a SYN and no
+                          further data
+  tcp-timeout             Specify timeout for NAT TCP flows
+  timeout                 Specify timeout for dynamic NAT translations
+  udp-timeout             Specify timeout for NAT UDP flows
+
+Router0(config)#ip ac
+Router0(config)#ip acc
+Router0(config)#ip acc
+Router0(config)#ip acces
+Router0(config)#ip access-list st
+Router0(config)#ip access-list standard
+Router0(config)#ip access-list standard test
+Router0(config-std-nacl)#exit
+Router0(config)#ip access-list standard TEST
+Router0(config-std-nacl)#?
+Standard Access List configuration commands:
+  <1-2147483647>  Sequence Number
+  default         Set a command to its defaults
+  deny            Specify packets to reject
+  exit            Exit from access-list configuration mode
+  no              Negate a command or set its defaults
+  permit          Specify packets to forward
+  remark          Access list entry comment
+
+Router0(config-std-nacl)#permit ?
+  Hostname or A.B.C.D  Address to match
+  any                  Any source host
+  host                 A single host address
+
+Router0(config-std-nacl)#do show ip int brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.22.17.136   YES DHCP   up                    up
+FastEthernet0/1            unassigned      YES unset  up                    up
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+NVI0                       unassigned      NO  unset  up                    up
+Router0(config-std-nacl)#exit
+Router0(config)#ip nat pool ov
+Router0(config)#ip nat pool over
+Router0(config)#ip nat pool overload ?
+  A.B.C.D        Start IP address
+  netmask        Specify the network mask
+  prefix-length  Specify the prefix length
+
+Router0(config)#ip nat pool overload 172.22.17.136 ?
+  A.B.C.D  End IP address
+
+Router0(config)#ip nat pool ?
+  WORD  Pool name
+
+Router0(config)#ip nat pool POOL ?
+  A.B.C.D        Start IP address
+  netmask        Specify the network mask
+  prefix-length  Specify the prefix length
+
+Router0(config)#ip nat pool POOL 172.22.17.136 ?
+  A.B.C.D  End IP address
+
+Router0(config)#ip nat inside source ?
+  list       Specify access list describing local addresses
+  route-map  Specify route-map
+  static     Specify static local->global mapping
+
+Router0(config)#ip nat inside source static ?
+  A.B.C.D  Inside local IP address
+  esp      IPSec-ESP (Tunnel mode) support
+  network  Subnet translation
+  tcp      Transmission Control Protocol
+  udp      User Datagram Protocol
+
+Router0(config)#ip nat inside source static ?
+  A.B.C.D  Inside local IP address
+  esp      IPSec-ESP (Tunnel mode) support
+  network  Subnet translation
+  tcp      Transmission Control Protocol
+  udp      User Datagram Protocol
+
+Router0(config)#ip nat inside source static 172.22.17.136 ?
+  A.B.C.D    Inside global IP address
+  interface  Specify interface for global address
+
+Router0(config)#do show
+Router0(config)#do show access-list
+Standard IP access list TEST
+    10 permit any
+Standard IP access list test
+Extended IP access list INTERNET
+    10 permit tcp any any established
+    20 permit ip any any (312 matches)
+Router0(config)#do show run
+Building configuration...
+
+Current configuration : 1042 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router0
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+ip cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address dhcp
+ ip access-group INTERNET in
+ ip nat outside
+ ip nat enable
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ ip nat inside
+ ip nat enable
+ duplex auto
+ speed auto
+!
+interface Serial0/1/0
+ no ip address
+ no fair-queue
+ clock rate 125000
+!
+interface Serial0/1/1
+ no ip address
+ shutdown
+ clock rate 125000
+!
+ip forward-protocol nd
+ip route 0.0.0.0 0.0.0.0 Serial0/1/0
+ip route 172.16.0.0 255.255.0.0 FastEthernet0/0
+!
+ip http server
+ip nat inside source list TEST interface FastEthernet0/0 overload
+!
+ip access-list standard TEST
+ permit any
+ip access-list standard test
+!
+ip access-list extended INTERNET
+ permit tcp any any established
+ permit ip any any
+!
+!
+control-plane
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ login
+!
+scheduler allocate 20000 1000
+end
+
+Router0(config)#ip nat ins
+Router0(config)#ip nat inside so
+Router0(config)#ip nat inside source l
+Router0(config)#ip nat inside source list TEST innt
+Router0(config)#ip nat inside source list TEST int
+Router0(config)#ip nat inside source list TEST interface t
+Router0(config)#ip nat inside source list TEST interface type ?
+% Unrecognized command
+Router0(config)#ip nat inside source list TEST interface ?
+  Async              Async interface
+  BVI                Bridge-Group Virtual Interface
+  CDMA-Ix            CDMA Ix interface
+  CTunnel            CTunnel interface
+  Dialer             Dialer interface
+  FastEthernet       FastEthernet IEEE 802.3
+  Lex                Lex interface
+  Loopback           Loopback interface
+  MFR                Multilink Frame Relay bundle interface
+  Multilink          Multilink-group interface
+  Null               Null interface
+  Serial             Serial
+  Tunnel             Tunnel interface
+  Vif                PGM Multicast Host interface
+  Virtual-PPP        Virtual PPP interface
+  Virtual-Template   Virtual Template interface
+  Virtual-TokenRing  Virtual TokenRing
+
+Router0(config)#ip nat inside source list TEST interface f0/0 ?
+  oer         Use with vtemplate only.  On new translation, if OER BR is UP,
+              OER will select IP from outgoing Interface.  All packets matching
+              translation are forwarded over Interface for duration of
+              translation.
+  overload    Overload an address translation
+  reversible  Allow out->in traffic
+  vrf         Specify vrf
+  <cr>
+
+Router0(config)#ip nat inside source list TEST interface f0/0 ov
+Router0(config)#ip nat inside source list TEST interface f0/0 overload
+Router0(config)#do show ip nat statistics
+Total active translations: 0 (0 static, 0 dynamic; 0 extended)
+Outside interfaces:
+  FastEthernet0/0
+Inside interfaces:
+  FastEthernet0/1
+Hits: 0  Misses: 0
+CEF Translated packets: 0, CEF Punted packets: 0
+Expired translations: 0
+Dynamic mappings:
+-- Inside Source
+[Id: 1] access-list TEST interface FastEthernet0/0 refcount 0
+Appl doors: 0
+Normal doors: 0
+Queued Packets: 0
+Router0(config)#do wr
+*Nov  6 09:44:13.247: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+*Nov  6 09:44:15.671: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+Building configuration...
+[OK]
+Router0(config)#
+Router0(config)#do show ip int brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.22.17.136   YES DHCP   up                    up
+FastEthernet0/1            unassigned      YES unset  up                    up
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+NVI0                       unassigned      NO  unset  up                    up
+Router0(config)#int f0/1 172.16.129.9 255.255.255.252
+                         ^
+% Invalid input detected at '^' marker.
+
+Router0(config)#int f0/12
+                        ^
+% Invalid input detected at '^' marker.
+
+Router0(config)#int f0/1
+Router0(config-if)#ip ad
+Router0(config-if)#ip address 172.16.129.9 255.255.255.252
+Router0(config-if)#no sh
+Router0(config-if)#do show ip int br
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.22.17.136   YES DHCP   up                    up
+FastEthernet0/1            172.16.129.9    YES manual up                    up
+Serial0/1/0                unassigned      YES unset  down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+NVI0                       unassigned      NO  unset  up                    up
+Router0(config-if)#
+*Nov  6 09:49:23.279: %LINEPROTO-5-UPDOWN: Line protocol on Inter
+
+
+        Speed (bits per second)
+  1200
+  2400
+  4800
+  9600
+  14400
+  19200
+  28800
+  32000
+  38400
+  48000
+  56000
+  57600
+  64000
+  72000
+  115200
+  125000
+  128000
+  148000
+  192000
+  250000
+  256000
+  320000
+  384000
+  500000
+  512000
+  640000
+  704000
+  768000
+  800000
+  1000000
+  1024000
+  1200000
+  1536000
+  2000000
+  4000000
+  8000000
+
+  <300-4000000>    Choose clockrate from list above
+
+RouterIN(config-if)#clock rate 8000000
+                                     ^
+% Invalid input detected at '^' marker.
+
+RouterIN(config-if)#clock rate 4000000
+%Error: clock rate 4000000 exceeds max 128000 for this interface
+RouterIN(config-if)#clock rate 1280000
+%Error: clock rate 1280000 exceeds max 128000 for this interface
+RouterIN(config-if)#clock rate 128000
+RouterIN(config-if)#int f0/1
+RouterIN(config-if)#?
+Interface configuration commands:
+  access-expression       Build a bridge boolean access expression
+  arp                     Set arp type (arpa, probe, snap) or timeout
+  backup                  Modify backup parameters
+  bandwidth               Set bandwidth informational parameter
+  bgp-policy              Apply policy propagated by bgp community string
+  bridge-group            Transparent bridging interface parameters
+  carrier-delay           Specify delay for interface transitions
+  cdp                     CDP interface subcommands
+  cmns                    OSI CMNS
+  custom-queue-list       Assign a custom queue list to an interface
+  dampening               Enable event dampening
+  default                 Set a command to its defaults
+  delay                   Specify interface throughput delay
+  description             Interface specific description
+  dot1q                   dot1q interface configuration commands
+  dot1x                   Interface Config Commands for 802.1x
+  duplex                  Configure duplex operation.
+  exit                    Exit from interface configuration mode
+  fair-queue              Enable Fair Queuing on an Interface
+  flow-sampler            Attach flow sampler to the interface
+  full-duplex             Configure full-duplex operational mode
+  glbp                    Gateway Load Balancing Protocol interface commands
+  half-duplex             Configure half-duplex and related commands
+  help                    Description of the interactive help system
+  hold-queue              Set hold queue depth
+  ip                      Interface Internet Protocol config commands
+  keepalive               Enable keepalive
+  llc2                    LLC2 Interface Subcommands
+  load-interval           Specify interval for load calculation for an
+                          interface
+  logging                 Configure logging for interface
+  loopback                Configure internal loopback on an interface
+  mac-address             Manually set interface MAC address
+  max-reserved-bandwidth  Maximum Reservable Bandwidth on an Interface
+  mop                     DEC MOP server commands
+  mtu                     Set the interface Maximum Transmission Unit (MTU)
+  no                      Negate a command or set its defaults
+  ntp                     Configure NTP
+  pppoe                   pppoe interface subcommands
+  pppoe-client            pppoe client
+  priority-group          Assign a priority group to an interface
+  random-detect           Enable Weighted Random Early Detection (WRED) on an
+                          Interface
+  rate-limit              Rate Limit
+  routing                 Per-interface routing configuration
+  service-policy          Configure QoS Service Policy
+  shutdown                Shutdown the selected interface
+  snapshot                Configure snapshot support on the interface
+  snmp                    Modify SNMP interface parameters
+  speed                   Configure speed operation.
+  standby                 HSRP interface configuration commands
+  timeout                 Define timeout values for this interface
+  traffic-shape           Enable Traffic Shaping on an Interface or
+                          Sub-Interface
+  transmit-interface      Assign a transmit interface to a receive-only
+                          interface
+  tx-ring-limit           Configure PA level transmit ring limit
+  vlan-id                 Process VLAN-encapsulated packets with a specific
+                          VLAN ID
+  vlan-range              Process VLAN-encapsulated packets with a range of
+                          VLAN IDs
+  vrrp                    VRRP Interface configuration commands
+
+RouterIN(config-if)#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RouterIN con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+*Jan  1 03:23:03.119: %SYS-5-CONFIG_I: Configured from console by console
+*Jan  1 03:27:49.839: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+RouterIN>
+RouterIN>en
+RouterIN#ex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RouterIN con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+RouterIN>
+RouterIN>show ip int brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    up
+FastEthernet0/0.20         172.16.0.1      YES manual up                    up
+FastEthernet0/0.30         172.16.128.1    YES manual up                    up
+FastEthernet0/0.50         172.16.128.129  YES manual up                    up
+FastEthernet0/1            unassigned      YES manual up                    up
+Serial0/1/0                172.16.129.10   YES manual up                    up
+Serial0/1/1                unassigned      YES unset  administratively down down
+RouterIN>en
+RouterIN#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+RouterIN(config)#int s0/1/0
+RouterIN(config-if)#no ip add
+RouterIN(config-if)#int f0/1
+RouterIN(config-if)#ip add
+RouterIN(config-if)#ip address 172.16.129.10 255.255.255.252
+RouterIN(config-if)#ex
+RouterIN(config)#show ip int brief
+                   ^
+% Invalid input detected at '^' marker.
+
+RouterIN(config)#do show ip int brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    up
+FastEthernet0/0.20         172.16.0.1      YES manual up                    up
+FastEthernet0/0.30         172.16.128.1    YES manual up                    up
+FastEthernet0/0.50         172.16.128.129  YES manual up                    up
+FastEthernet0/1            172.16.129.10   YES manual up                    up
+Serial0/1/0                unassigned      YES manual up                    up
+Serial0/1/1                unassigned      YES unset  administratively down down
+RouterIN(config)#
+Router0>show ip int brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.22.17.136   YES DHCP   up                    up
+FastEthernet0/1            unassigned      YES manual up                    up
+Serial0/1/0                172.16.129.9    YES manual up                    up
+Serial0/1/1                unassigned      YES NVRAM  administratively down down
+NVI0                       unassigned      NO  unset  up                    up
+Router0>int s0/1/0
+        ^
+% Invalid input detected at '^' marker.
+
+Router0>en
+Router0#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#int s0/1/0
+Router0(config-if)#no ip addr
+Router0(config-if)#int f0/1
+Router0(config-if)#ip add
+Router0(config-if)#ip address 172.16.129.9 255.255.255.252
+Router0(config-if)#ex
+Router0(config)#ex
+% Ambiguous command:  "ex"
+Router0(config)#
+Router0(config)#exit
+Router0#
+Router0#show
+*Nov  6 11:17:33.743: %SYS-5-CONFIG_I: Configured from console by cons
+% Type "show ?" for a list of subcommands
+Router0#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is 0.0.0.0 to network 0.0.0.0
+
+     172.16.0.0/30 is subnetted, 1 subnets
+C       172.16.129.8 is directly connected, FastEthernet0/1
+C    172.22.0.0/16 is directly connected, FastEthernet0/0
+S*   0.0.0.0/0 is directly connected, FastEthernet0/0
+Router0#
+RouterIN(config)#ex
+% Ambiguous command:  "ex"
+RouterIN(config)#exit
+RouterIN#show ip route
+*Jan  1 03:32:09.599: %SYS-5-CONFIG_I: Configured from console by console
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is 0.0.0.0 to network 0.0.0.0
+
+     172.16.0.0/16 is variably subnetted, 5 subnets, 3 masks
+S       172.16.129.12/30 is directly connected, FastEthernet0/1
+C       172.16.129.8/30 is directly connected, FastEthernet0/1
+C       172.16.128.0/25 is directly connected, FastEthernet0/0.30
+C       172.16.128.128/25 is directly connected, FastEthernet0/0.50
+C       172.16.0.0/17 is directly connected, FastEthernet0/0.20
+S*   0.0.0.0/0 is directly connected, FastEthernet0/1
+RouterIN#
+*Jan  1 03:32:50.987: %LINK-3-UPDOWN: Interface Serial0/1/0, changed state to down
+*Jan  1 03:32:51.987: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/0, changed state to down
+RouterIN#show ip int brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            unassigned      YES unset  up                    up
+FastEthernet0/0.20         172.16.0.1      YES manual up                    up
+FastEthernet0/0.30         172.16.128.1    YES manual up                    up
+FastEthernet0/0.50         172.16.128.129  YES manual up                    up
+FastEthernet0/1            172.16.129.10   YES manual up                    up
+Serial0/1/0                unassigned      YES manual down                  down
+Serial0/1/1                unassigned      YES unset  administratively down down
+RouterIN#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is 0.0.0.0 to network 0.0.0.0
+
+     172.16.0.0/16 is variably subnetted, 5 subnets, 3 masks
+S       172.16.129.12/30 is directly connected, FastEthernet0/1
+C       172.16.129.8/30 is directly connected, FastEthernet0/1
+C       172.16.128.0/25 is directly connected, FastEthernet0/0.30
+C       172.16.128.128/25 is directly connected, FastEthernet0/0.50
+C       172.16.0.0/17 is directly connected, FastEthernet0/0.20
+S*   0.0.0.0/0 is directly connected, FastEthernet0/1
+RouterIN#
+Router0#show ip int brief
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0/0            172.22.17.136   YES DHCP   up                    up
+FastEthernet0/1            172.16.129.9    YES manual up                    up
+Serial0/1/0                unassigned      YES manual down                  down
+Serial0/1/1                unassigned      YES NVRAM  administratively down down
+NVI0                       unassigned      NO  unset  up                    up
+Router0#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is 0.0.0.0 to network 0.0.0.0
+
+     172.16.0.0/30 is subnetted, 1 subnets
+C       172.16.129.8 is directly connected, FastEthernet0/1
+C    172.22.0.0/16 is directly connected, FastEthernet0/0
+S*   0.0.0.0/0 is directly connected, FastEthernet0/0
+Router0#ip route 172.16.0.0 255.255.0.0 f0/1
+         ^
+% Invalid input detected at '^' marker.
+
+Router0#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router0(config)#ip route 172.16.0.0 255.255.0.0 f0/1
+Router0(config)#no ip route 172.22.0.0
+% Incomplete command.
+
+Router0(config)#no ip route 172.22.0.0 ?
+  A.B.C.D  Destination prefix mask
+
+Router0(config)#no ip route 172.22.0.0 255.255.0.0
+%No matching route to delete
+Router0(config)#

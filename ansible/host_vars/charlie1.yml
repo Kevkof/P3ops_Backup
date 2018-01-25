@@ -1,0 +1,27 @@
+# host_vars/charlie1.yml
+# Variables voor slave DNS - charlie1
+# IP-adres: 172.16.128.134
+---
+
+bind_acls:
+  - name: acl1
+    match_list:
+      - 172.16.128.0/24
+
+bind_zone_name: 'green.local'
+bind_zone_master_server_ip: 172.16.128.133
+bind_zone_networks:
+  - '172.16.128'
+bind_zone_name_servers:
+  - bravo1
+  - charlie1
+bind_allow_query:
+  - any
+bind_listen_ipv4:
+  - any
+
+#Firewall
+rhbase_firewall_allow_services:
+  - dns
+
+beats_config_file: files/servers.yml

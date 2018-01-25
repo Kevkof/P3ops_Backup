@@ -1,0 +1,27 @@
+- hostname: oscar1
+  ip: 172.16.128.8
+  network: 172.16.128.0
+  netmask: 255.255.255.128
+  broadcast: 172.16.128.127
+  gateway: 172.16.128.1
+  mem: 512
+  vcpu: 1
+
+- hostname: papa1
+  ip: 172.16.128.9
+  network: 172.16.128.0
+  netmask: 255.255.255.128
+  broadcast: 172.16.128.127
+  gateway: 172.16.128.1
+  mem: 512
+  vcpu: 1
+
+- hostname: quebec1
+  ip: 172.16.128.10
+  network: 172.16.128.0
+  netmask: 255.255.255.128
+  broadcast: 172.16.128.127
+  gateway: 172.16.128.1
+  mem: 512
+  vcpu: 1
+

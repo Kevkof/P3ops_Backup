@@ -1,0 +1,90 @@
+# host_vars/bravo1.yml
+# Variabelen voor master DNS - bravo1
+# IP-adres: 172.16.128.133
+---
+
+bind_acls:
+  - name: acl1
+    match_list:
+      - 172.16.128/24
+
+bind_zone_name: 'green.local'
+bind_zone_master_server_ip: 172.16.128.133
+bind_zone_networks:
+  - '172.16.128'
+bind_zone_name_servers:
+  - bravo1
+  - charlie1
+bind_zone_hosts:
+  - name: bravo1
+    ip: 172.16.128.133
+    aliases:
+      - ns1
+  - name: charlie1
+    ip: 172.16.128.134
+    aliases:
+      - ns2
+  - name: alfa1
+    ip: 172.16.128.132
+    aliases:
+      - ad
+  - name: delta1
+    ip: 172.16.128.135
+    aliases:
+      - mail
+  - name: echo1
+    ip: 172.16.128.136
+    aliases:
+      - www
+  - name: kilo1
+    ip: 172.16.128.4
+    aliases:
+      - dhcp
+  - name: lima1
+    ip: 172.16.128.5
+    aliases:
+      - files
+  - name: mike1
+    ip: 172.16.128.6
+    aliases:
+      - cms
+  - name: november1
+    ip: 172.16.128.7
+    aliases:
+      - db
+  - name: oscar1
+    ip: 172.16.128.8
+    aliases:
+      - mon
+  - name: papa1
+    ip: 172.16.128.9
+    aliases:
+      - pxe
+  - name: quebec1
+    ip: 172.16.128.10
+    aliases:
+      - dnsfwd
+  - name: virt1
+    ip: 172.16.128.130
+  - name: virt2
+    ip: 172.16.128.131
+  - name: virt3
+    ip: 172.16.128.2
+  - name: virt4
+    ip: 172.16.128.3
+
+bind_zone_mail_servers:
+  - name: delta1
+    preference: 10
+
+bind_allow_query:
+  - any
+bind_listen_ipv4:
+  - any
+
+#Firewall
+
+rhbase_firewall_allow_services:
+  - dns
+
+beats_config_file: files/servers.yml

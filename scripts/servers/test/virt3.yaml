@@ -1,0 +1,36 @@
+- hostname: kilo1
+  ip: 172.16.128.4
+  network: 172.16.0.0
+  netmask: 255.255.0.0
+  broadcast: 172.16.255.255
+  gateway: 172.16.0.1
+  mem: 512
+  vcpu: 1
+
+- hostname: lima1
+  ip: 172.16.128.5
+  network: 172.16.0.0
+  netmask: 255.255.0.0
+  broadcast: 172.16.255.255
+  gateway: 172.16.0.1
+  mem: 512
+  vcpu: 1
+
+- hostname: mike1
+  ip: 172.16.128.6
+  network: 172.16.0.0
+  netmask: 255.255.0.0
+  broadcast: 172.16.255.255
+  gateway: 172.16.0.1
+  mem: 512
+  vcpu: 1
+
+- hostname: november1
+  ip: 172.16.128.7
+  network: 172.16.0.0
+  netmask: 255.255.0.0
+  broadcast: 172.16.255.255
+  gateway: 172.16.0.1
+  mem: 512
+  vcpu: 1
+

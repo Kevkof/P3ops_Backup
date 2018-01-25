@@ -1,0 +1,3 @@
+R3: "Gebruikte rollen" #Typfout OK
+R18: Wat is Kibana? link naar ergens een pagina erover ofzo (idem voor elasticsearch) OK
+R112 "Geïmporteerd" #Typfout OK

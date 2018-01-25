@@ -1,0 +1,35 @@
+- Opzetten servers ging na eerste problemen redelijk vlot.
+- Ansible playbook werkt op kleine foutjes na volledig.
+- Aan het eind van de dag werkte het meeste grotendeels.
+- Veel onverwachte problemen tegengekomen, maar telkens kunnen oplossen.
+- De deployment van het ansible playbook verliep zonder fouten.
+- Als team hebben we bij bijna elke server wel al een eerste werkende versie.
+- En ik denk dat [lander](https://github.com/landervdb) wel een pluim verdiend voor al het werk dat hij de dag zelf gedaan heeft. Onderandere de installatie van de virtuele machines
+- Iedere subgroep had ervoor gezorgd alvorsen de productie-release zou beginnen of voor 10u30 alles klaar te hebben en zodat alle code op de github master te vinden zou zijn die zou gebruikt worden.
+- Communicatie welke groep welke taken nog vrij snel diende af te werken verliep vlot.
+- Code van onze subgroep compileerde zonder fouten.
+ - samenwerking tussen de teams. Er waren geen grote discussies tussen de teams en met team Aalst.
+ - Persoon die pluim verdient is Ruben. Voor zijn werk als branchmaster
+- Eenmaal de voorbereidingen in orde waren (vm servers + netwerk) ging het heel vlot
+- IP toewijzingen
+- Opzetten intern netwerk
+- Communicatie binnin de netwerk groep
+- Op 2 servers na werkten alle Ansible-scripts meteen. 
+- Er werd goed naar oplossingen gezocht wanneer problemen zich voordeden. Zo werd er bijvoorbeeld een crossover kabel gehaald bij de IT-dienst toen bleek dat een seriele verbinding tussen de routers voor een te zware bottleneck zorgde.
+- De ansible deployment gaf weinig problemen, ik had verwacht dat er veel meer zaken gingen mislopen maar de toepassing van de ansible playbooks verliep zeer vlot.
+- teamwerk, het ging goed om de servers aan te passen om ze zo snel mogelijk werkend te maken. De sfeer zat goed, en communicatie verliep vlot 
+- Indien er een fout was werd er direct voorgesteld om te helpen zoeken naar een oplossing
+- Elke groep was zo goed als klaar met wat zij moesten opleveren tegen de eerste oplevering. Op een aantal zaken na op sommige servers, was het geheel in orde van wat we nu wilden opleveren waardoor we, tot nu toe, al een mooi geheel hebben gezien. 
+- Naar de volgende oplevering toe moeten we zeker blijven communiceren , zeker met de groepen in Aalst, zoals we de voorbije weken hebben gedaan. Enkel dan kunnen we een zo goed mogelijk geheel opleveren.
+- Lander Van den Bulcke verdient zeker een pluim. Hij heeft het meeste ervaring binnen de Linux omgeving en kon dan ook vragen beantwoorden van elk groepje als ze een probleem hadden of niet onmiddelijk verder konden. Hij heeft tijdens de oplevering het voortouw genomen wat een goede aanzet was.
+    - het netwerk was snel opgesteld
+    - we hebben de problemen snel kunnen vast stellen
+    - eenmaal alles klaar stond verliep het heel vlod en werd de 1e server na de andere geinstalleerd
+    - Jodie leider in Team-green
+    - Lander algemeen behulpzaam in alle gebieden.
+    - Kjel leider binnen netwerken
+- De samenwerking verliep uitstekend
+- De werking van het KVM, met dank aan Lander Van Den Bulcke
+- een groot deel van de servers waren af 
+- automatisatie liep zeer goed
+-->

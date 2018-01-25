@@ -1,0 +1,12 @@
+R7: redelijk eenvoudig ipv simpel (west-vlaams boerke)
+R8: Begin met het toewijzen
+R48: SIMPEL x2!!
+R68: access-point
+R69: we gaan ervan uit
+R82: is/zijn de interface(s)
+R94: network adress of netwerkadres. niet network adres
+R100: veiligheidsredenen
+R119: om te bepalen
+R128: vanalles / om het even wat
+R158: bepaalt
+

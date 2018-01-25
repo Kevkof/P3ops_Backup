@@ -1,0 +1,43 @@
+# host_vars/kilo1.yml
+# Variabelen voor DHCP-server - kilo1
+# IP-adres: 172.16.128.4
+---
+
+
+dhcp_global_default_lease_time: 28800
+dhcp_global_max_lease_time: 43200
+dhcp_global_domain_name: green.local
+dhcp_global_domain_name_servers:
+      - 172.16.128.10
+dhcp_global_routers: 172.16.0.1           # Router-In Vlan 30:  172.16.128.1
+dhcp_subnets:
+      - ip: 172.16.0.0
+        netmask: 255.255.128.0
+        range_begin: 172.16.0.100           # Ongekende hosts krijgen range tussen 172.16.0.100 t.e.m. 172.16.127.254
+        range_end: 172.16.127.254           # Gekende host krijgen IP-adres o.b.v. MAC-adres (172.16.0.2 t.e.m 172.168.0.99)
+        booting: allow
+        bootp: allow
+        filename: pxelinux/pxelinux.0
+      - ip: 172.16.128.0
+        netmask: 255.255.255.128
+
+
+dhcp_global_next_server: 172.16.128.9       # PXE-Boot Server IP: 172.16.128.9
+dhcp_hosts:
+  - name: workstation1                      # B4019B04
+    mac: '00:23:ae:b0:8e:29'
+    ip: 172.16.0.11
+  - name: worstation2                       # B4019B05
+    mac: '00:23:ae:ab:f2:2a'
+    ip: 172.16.0.12
+  - name: workstation3                      # B4019B09
+    mac: '00:23:ae:ab:ef:23'
+    ip: 172.16.0.13
+  - name: workstation4                      # B4019A14
+    mac: '00:23:ae:ab:eb:89'
+    ip: 172.16.0.14
+  - name: workstation5                      # B4019B08
+    mac: '00:23:ae:ac:9f:d9'
+    ip: 172.16.0.15
+
+beats_config_file: files/servers.yml

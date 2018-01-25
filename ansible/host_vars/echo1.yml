@@ -1,0 +1,15 @@
+---
+rhbase_firewall_allow_services:
+  - http
+  - https
+
+drupal_database: 'echo1DB'
+drupal_username: 'echo1'
+drupal_password: 'echo1'
+drupal_database_host: '172.16.128.7'
+
+rhbase_selinux_booleans:
+  - httpd_can_network_connect
+  - httpd_can_network_connect_db
+
+beats_config_file: files/servers.yml

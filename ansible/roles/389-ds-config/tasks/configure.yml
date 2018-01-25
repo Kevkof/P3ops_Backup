@@ -1,0 +1,42 @@
+---
+
+# See <https://github.com/unchained-capital/ansible-ldap-modules>
+
+- name: Remove unnecessary entries
+  ldap_entry:
+    dn: "{{ item }}"
+    state: absent
+    params: "{{ dirsrv_auth }}"
+  with_items: "{{ dirsrv_remove_entries }}"
+  tags:
+    - 389-ds-config
+    - configure
+
+- name: Make sure necessary OUs are present
+  ldap_entry:
+    dn: "ou={{ item }},{{ dirsrv_suffix }}"
+    objectClass: organizationalUnit
+    state: present
+    params: "{{ dirsrv_auth }}"
+  with_items:
+    - People
+    - Groups
+  tags:
+    - 389-ds-config
+    - configure
+
+- name: Generate LDIF file
+  template:
+    src: ldap.ldif.j2
+    dest: /tmp/ldap.ldif
+  tags:
+    - 389-ds-config
+    - configure
+
+- name: Add LDAP Entries
+  shell: "ldapadd -x -D \"{{ dirsrv_rootdn }}\" -w {{ dirsrv_password }} -f /tmp/ldap.ldif && touch /opt/ldap_added"
+  args:
+    creates: "/opt/ldap_added"
+  tags:
+    - 389-ds-config
+    - configure

@@ -1,0 +1,5 @@
+R3: "Gebruikte rollen" # Typfout
+R17: Waarom poort 389, handig om eens te vermelden wat er op die poort staat
+R87: - Welke 5 gebruikers, waarom 5 gebruikers, waarom die 5 gebruikers?
+     - Wat meer beschrijven voor wat elke variabele staat kan helpen, wat doet uid/cn/sn/uidnumber/gidnumber (een leek (aka ik) weet dit niet ) Als het ergens te vinden is in de README ofzo, verwijs er dan naar.
+

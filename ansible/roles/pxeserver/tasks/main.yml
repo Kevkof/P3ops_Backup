@@ -1,0 +1,149 @@
+# roles/pxeserver/tasks/main.yml
+---
+
+- include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}.yml"
+    - "{{ ansible_os_family }}.yml"
+  tags: pxeserver
+
+- name: Install packages
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items: "{{ pxeserver_packages }}"
+  tags: pxeserver
+
+- name: Ensure services are started
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  with_items: "{{ pxeserver_services }}"
+  tags: pxeserver
+
+- name: Create directory for PXEboot related files
+  file:
+    path: "{{ pxeserver_path }}"
+    state: directory
+  tags: pxeserver
+
+- name: Make Network Boot Programs for BIOS and UEFI based systems available
+  command: cp "{{ item }}" "{{ pxeserver_path }}/{{ item|regex_replace('.*/', '') }}"
+  args:
+    creates: "{{ pxeserver_path }}/{{ item|regex_replace('.*/', '') }}"
+  with_items: "{{ pxeserver_files }}"
+  tags: pxeserver
+
+- name: Create directory for PXE server configuration
+  file:
+    path: "{{ pxeserver_path }}/pxelinux.cfg"
+    state: directory
+  tags: pxeserver
+
+- name: Create directories for boot images
+  file:
+    path: "{{ pxeserver_path }}/{{ item.name }}"
+    state: directory
+  with_items: "{{ pxeserver_images }}"
+  tags: pxeserver
+
+- name: Create subdirectory for Fedora27
+  file:
+    path: "{{ pxeserver_path }}/Fedora27/images"
+    state: directory
+  tags: pxeserver
+
+- name: Create subdirectory for Centos7
+  file:
+    path: "{{ pxeserver_path }}/Centos7/LiveOS/"
+    state: directory
+  tags: pxeserver
+
+- name: Create default menu for BIOS based systems
+  template:
+    src: pxelinux.cfg_default
+    dest: "{{ pxeserver_path }}/pxelinux.cfg/default"
+  tags: pxeserver
+
+- name: Setup HTTPD settings
+  template:
+    src: etc_httpd_conf.d_pxeboot.conf
+    dest: "/etc/httpd/conf.d/pxeboot.conf"
+  notify: restart httpd
+  tags: pxeserver
+
+- name: Download boot images
+  get_url:
+    url: "{{ item.kernel_url }}"
+    dest: "{{ pxeserver_path }}/{{ item.name }}/vmlinuz"
+  with_items: "{{ pxeserver_images }}"
+  tags: pxeserver
+
+- name: Download initrd images
+  get_url:
+    url: "{{ item.initrd_url }}"
+    dest: "{{ pxeserver_path }}/{{ item.name }}/initrd.img"
+  with_items: "{{ pxeserver_images }}"
+  tags: pxeserver
+
+- name: Download Fedora27 image
+  get_url:
+    url: "{{ imagefedora27_url }}"
+    dest: "{{ pxeserver_path }}/Fedora27/images/install.img"
+  tags: pxeserver
+
+- name: Download Centos7 image
+  get_url:
+    url: "{{ imagecentos7_url }}"
+    dest: "{{ pxeserver_path }}/Centos7/LiveOS/squashfs.img"
+  tags: pxeserver
+  
+- name: Copy kickstart files
+  copy:
+    src: "{{ item.kickstart_path }}"
+    dest: "{{ pxeserver_path }}/{{ item.name }}/ks.cfg"
+  when: item.kickstart_path is defined
+  with_items: "{{ pxeserver_images }}"
+  tags: pxeserver
+  
+- name: Create Folders for Graphical UI
+  file:
+    path: "{{ pxeserver_path }}/vesamenu/"
+    state: directory
+  tags: pxeserver
+  
+- name: Enable Graphical UI
+  copy: 
+    src: /usr/share/syslinux/vesamenu.c32
+    dest: /srv/tftp/pxelinux/vesamenu.c32
+    remote_src: yes
+  tags: 
+    - pxeserver
+    - graphics
+  
+- name: Copy Graphical UI (background)
+  copy: 
+    src: "files/pxe/vesamenu01.png"
+    dest: "{{ pxeserver_path }}/vesamenu/vesamenu01.png"
+  tags: 
+    - pxeserver
+    - graphics
+  
+- name: Copy Graphical UI (config)
+  copy: 
+    src: "files/pxe/vesamenu01.cfg"
+    dest: "{{ pxeserver_path }}/vesamenu/vesamenu01.cfg"
+  tags: 
+    - pxeserver
+    - graphics
+    
+
+- name: Set SELinux on /pxelinux
+  file:
+    path: '/srv/tftp/pxelinux'
+    recurse: yes
+    setype: public_content_rw_t
+  tags: 
+    - pxeserver
+    - permissions

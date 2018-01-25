@@ -1,0 +1,14 @@
+#meta-data
+
+instance-id: {{ hostname }}
+
+network-interfaces: |
+  auto eth0
+  iface eth0 inet static
+  address {{ ip_address }}
+  network {{ network_address }}
+  netmask {{ network_mask }}
+  broadcast {{ broadcast_address }}
+  gateway {{ default_gateway }}
+
+local-hostname: {{ hostname }}

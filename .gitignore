@@ -1,0 +1,47 @@
+# .gitignore
+
+# Hidden Vagrant-directory
+.vagrant
+
+# Python development
+.ropeproject
+
+# Backup files (e.g. Vim, Gedit, etc.)
+*~
+
+# Compiled Python
+*.pyc
+
+# BATS installation
+test/bats/
+
+# Vagrant base boxes (you never know when someone puts one in the repository)
+*.box
+
+# Ignore role directories from Ansible Galaxy (user.role notation)
+ansible/roles/*.*
+
+# .retry file failed booting of servers (R. Bruggeman)
+*.retry
+
+# Microsoft Office applications (R. Bruggeman)
+
+*.xlsx
+*.xlsm
+*.xlsb
+*.docx
+*.doc
+*.ppt
+*.pptx
+*.xls
+*.docm
+*.odt
+*.mdb
+*.accdb
+
+# The retry file for failed installs
+ansible/site.retry
+
+# Fedora & CentOS
+Fedora27/
+Centos7/

@@ -1,0 +1,12 @@
+alfa1 ansible_host=172.16.128.132
+bravo1 ansible_host=172.16.128.133
+charlie1 ansible_host=172.16.128.134
+delta1 ansible_host=172.16.128.135
+echo1 ansible_host=172.16.128.136
+kilo1 ansible_host=172.16.128.4
+lima1 ansible_host=172.16.128.5
+mike1 ansible_host=172.16.128.6
+november1 ansible_host=172.16.128.7
+oscar1 ansible_host=172.16.128.8
+papa1 ansible_host=172.16.128.9
+quebec1 ansible_host=172.16.128.10

@@ -1,0 +1,3 @@
+R3: Vuil vakjargon ...beat (dit is blablabla) ... elasticsearch (dit is blablabla), iemand die niet bezig is geweest met monitoring weet niet wat deze zaken zijn. (en die over niet zo veel basiskennis beschikt)
+Verwijs gerust gewoon naar een wikipedia pagina of iets dergelijks waar er informatie over staat, je hoeft het zelf niet volledig uit te leggen. OK
+R18: "Of de beat al dan niet geïnstalleerd dient te worden:" "KlinktBeter OK

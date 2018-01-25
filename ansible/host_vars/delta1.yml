@@ -1,0 +1,35 @@
+---
+
+rhbase_firewall_allow_services:
+  - imap
+  - imaps
+  - pop3
+  - pop3s
+  - http
+  - https
+  - smtp
+  - smtps
+  - smtp-submission
+
+httpd_scripting: 'php'
+
+rhbase_users:
+  - name: robbe
+    password: '$6$9BUCNs4hpU86lhB5$DzCc9fWmTrAfGJ5yWCpe5ZeUQk9c/kzh6DZ3HJQDtv2OjOFJTjnwz7nwe/iEd0j5vo05csc7t3INYf7rBqUZy0'
+    shell: /sbin/nologin
+
+  - name: robin
+    password: '$6$BVdU.mRWqhZzfPQx$7ESB7dLFqB3KvRaJ9Qj/5r3AFccaJ08S4KOIr.PwessZCRldN.TVbyWbN6XTn6r2Fj6aZa5IUQRxV1/uzVOt/.'
+    shell: /sbin/nologin
+
+postfix_myhostname: mail.green.local
+
+postfix_mydomain: green.local
+
+Squirrelmail_domain: green.local
+Squirrelmail_imapServerAddress: mail.green.local
+Squirrelmail_smtpServerAddress: mail.green.local
+
+httpd_DocumentRoot: /var/www/
+
+beats_config_file: files/servers.yml

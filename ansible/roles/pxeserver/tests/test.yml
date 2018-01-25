@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true
+  vars:
+    dhcp_subnets:
+      - ip: 192.168.50.0
+        netmask: 255.255.255.0
+    pxeserver_ip: 192.168.50.2
+    pxeserver_images:
+      - name: centos7_x86_64
+        default: true
+        kernel_url: http://ftp.belnet.be/ftp.centos.org/7/os/x86_64/isolinux/vmlinuz
+        initrd_url: http://ftp.belnet.be/ftp.centos.org/7/os/x86_64/isolinux/initrd.img
+        label: CentOS 7 x86_64
+
+  roles:
+    - pxeserver

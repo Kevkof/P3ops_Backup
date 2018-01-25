@@ -1,0 +1,17 @@
+- eerst opdrachten groeperen dan mensen toewijzen.
+- stand up in begin van de les
+- 1 persoon die de volledige git hub in het oog houd en merged (we gebruiken branching)
+- slack als communicatie tool gebruiken
+- kanban bord op github gebruiken om te vermijden dat we op teveel verschillende plaatsen moeten werken.
+- Lander Van Den Bulcke
+- Jodie De Pestel
+- Ruben Bruggeman
+- Lander Van Den Bulcke
+- Jodie De Pestel
+- Ruben Bruggeman
+- Als voorbereiding zochten we meer info op over multiple machines op een fysieke server. Dit deden we aangezien we te weinig servers hadden om elke server als een standalone server te laten draaien. Hierbij leerden we dus meer over KVM en we kregen de taak meer info op te zoeken over KVM.
+- betere voorbereiding over implementatie
+- beter netwerk voorbereid
+- 2de pre-productie release organiseren voor officiele release
+- kleine netwerk test-opstelling met firewall included
+- ook de servers eens opstellen en kijken als de werking in orde is hiervan

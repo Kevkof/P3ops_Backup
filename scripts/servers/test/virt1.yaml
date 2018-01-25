@@ -1,0 +1,26 @@
+- hostname: alfa1
+  ip: 172.16.128.132
+  network: 172.16.0.0
+  netmask: 255.255.0.0
+  broadcast: 172.16.255.255
+  gateway: 172.16.0.1
+  mem: 512
+  vcpu: 1
+
+- hostname: bravo1
+  ip: 172.16.128.133
+  network: 172.16.0.0
+  netmask: 255.255.0.0
+  broadcast: 172.16.255.255
+  gateway: 172.16.0.1
+  mem: 512
+  vcpu: 1
+
+- hostname: charlie1
+  ip: 172.16.128.134
+  network: 172.16.0.0
+  netmask: 255.255.0.0
+  broadcast: 172.16.255.255
+  gateway: 172.16.0.1
+  mem: 512
+  vcpu: 1

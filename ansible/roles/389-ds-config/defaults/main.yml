@@ -1,0 +1,12 @@
+---
+
+dirsrv_remove_entries: []
+
+dirsrv_groups: []
+
+dirsrv_users: []
+
+dirsrv_auth:
+  server_uri: "ldap://{{ dirsrv_fqdn }}/"
+  bind_dn: "{{ dirsrv_rootdn }}"
+  bind_pw: "{{ dirsrv_password }}"

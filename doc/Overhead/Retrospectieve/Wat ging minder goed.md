@@ -1,0 +1,42 @@
+- We hebben er niet aan gedacht vooraf tests op fysieke machines te doen, waardoor we daarbij regelmatig een probleem hadden.
+- Algemene organisatie was slecht. Kleine groep werkt terwijl de rest wacht.
+- Geen plan B voorzien.
+- Instellen servers en netwerk duurt momenteel nog te lang.
+- Enkele ansible scripts nog niet compleet, dus niet kunnen testen.
+- Communicatie tussen servers niet kunnen testen.
+- mensen waren te laat dus stand up was te lang uitgesteld
+- de netwerk groep had problemen met de voorbereiding van de opstelling vooral wat er voor zorgde dat het lang heeft geduurd vooraleer we effectief konden beginnen
+- De opstelling zelf duurde ook lang alhoewel wel een plan hadden in theorie maar dat liep natuurlijk in het honderd met onvoorzien errors.
+- Het lastigste was dat de host nog niet klaar waren of dat de installatie van de virtuele machines niet gescript was. indien we dit kunnen automatiseren hadden we geen 6u moeten wachten op deze installatie.
+- Aangezien de virtuele machines nog niet klaar waren en we hier dus veel tijd aan besteed hebben hadden we minder tijd voor onze servers te testen.
+- Zo was er blijkbaar een probleem met de Drupal (Echo1) server en de connectie met de DB (November1).
+- Standup niet in het begin van de productie-release
+- Vreemde communicatie de eerste twee uur
+- Het opzetten van het netwerk zelf duur echt veel te lang. Dit gaf zoveel problemen dat we hier meerdere uren aan verloren zijn.
+- Testen is nauwelijks kunnen gebeuren door voorgaand punt, hierdoor is nog altijd niet duidelijk welke code moet worden aangepast of welke goed genoeg is voor de eindrelease.
+- Communicatie d.m.v. de stand van zaken. Niet geheel duidelijk welke groep met wat bezig was op welk moment.
+- De communicatie van de voorbije weken tijdens de voorbereding verliep een stuk beter.
+- Werkverdeling van de teams
+- Duidelijk communicatie tijdens de release
+- Enkele van de servers werken nog niet naar behoren
+- Connectie met het internet
+- takenverdeling binnen de volledige groep
+- Het opzetten van de virtualisatiehosts nam veel tijd in beslag.
+- Het opzetten van de VMs verliep nog handmatig dit ging veel te traag. Dit moet zeker (zoveel mogelijk) geautomatiseerd worden.
+- Er was onvoldoende planning; de taakverdeling en het verloop van de dag waren niet duidelijk genoeg.
+- Het kanban-bord voor de dag zelf was niet goed georganiseerd. Manuele taken zoals het opzetten van de servers en het opzetten van het netwerk stonden als slechts 1 taak op het bord, terwijl deze taken erg lang duurden, en er waren aparte taken aangemaakt voor alle individuele servers, terwijl die allemaal geautomatiseerd door Ansible werden uitgevoerd.
+- Het instellen van de netwerkapparatuur duurde te lang, op de finale release zou dit (bijna) geen tijd overlaten om het Ansible-playbook uit te voeren, laat staan om te testen.
+- Het was niet duidelijk hoe het complete systeem moet getest worden.
+- Verschillende componenten waren nog niet volledig klaar.
+- De netwerkconfiguratie vond ik zeer moeilijk. Meer specifiek omdat ik heir eigenlijk echt niet zo sterk in ben. Het was wel fijn om de opstelling te zien als we effectief konden pingen tussen alle servers.
+- De implementatie, we wisten dat deze eerste release moeilijk ging zijn, we hebben dan ook de implementatie niet volledig kunnen voltooien.
+- Het instellen van de machines waar de servers op gedeployed moesten worden ging zeer moeizaam waardoor we maar weinig tijd over hadden om andere zaken te testen en te troubleshooten.
+- Er was een fout in echo1 die niet te repliceren viel op onze eigen laptop
+- Het klaarmaken van de servers om de services op te installeren: dit bleek toch moeilijker dan verwacht te zijn waardoor we veel tijd verloren zijn. 
+    - Het netwerk met het internet verbinden
+    - De internet speed goed krijgen 
+    - firewall zat nog niet in de opstelling
+    - de voorbereiding was te beperkt waardoor er een bottle neck bij netwerken en de VM opstellingen was waardoor iedereen moest wachten
+- de configuratie van de fysieke servers liep ietwat te traag. Het config bestand bevatte stappen waardoor het internet kon wegvallen
+- Er waren bottlenecks met de cisco, de configuratie ervan moet sneller.
+-->

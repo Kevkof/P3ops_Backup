@@ -1,0 +1,29 @@
+# november1
+---
+
+rhbase_firewall_allow_services:
+  - mysql
+
+mariadb_bind_address: '0.0.0.0'
+
+mariadb_databases:
+  - name: echo1DB
+    init_script: ./files/echo1DBSetup.sql
+  - name: mike1DB
+    init_script: ./files/mike1DBSetup.sql
+
+mariadb_users:
+  - name: november1
+    password: november1
+    priv: '*.*:ALL,GRANT'
+    host: '172.16.128.%'
+  - name: echo1
+    password: echo1
+    priv: 'echo1DB.*:ALL'
+    host: '172.16.128.136'
+  - name: mike1
+    password: mike1
+    priv: 'mike1DB.*:ALL'
+    host: '172.16.128.6'
+
+beats_config_file: files/servers.yml
